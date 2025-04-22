@@ -9,7 +9,7 @@
 # 📦 Required Libraries
 import pandas as pd
 import requests
-from dash import Dash, dcc, html, Input, Output, State
+from dash import Dash, dcc, html, Input, Output, no_update
 import plotly.express as px
 import plotly.graph_objects as go
 import time
@@ -162,7 +162,7 @@ def update_api_key_store(api_key_input):
     if api_key_input:
         countries = fetch_countries(api_key_input)
         return api_key_input, "✅ API key stored successfully.", countries
-    return dash.no_update, "", []
+    return no_update, "", []
 
 # Callback for Top 3 Vulnerable Goods and Bar Chart
 @app.callback(
