@@ -1,25 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[17]:
-
-
 # Supply Chain Resilience Explorer Dashboard
 
-# 📦 Required Libraries
+# Required Libraries
 import pandas as pd
-import requests
 from dash import Dash, dcc, html, Input, Output, no_update
 import plotly.express as px
 import plotly.graph_objects as go
-import time
+from utils.main_utils import fetch_comtrade_data, is_valid_partner
 
 # Fetch Countries Based on Partner Data
 def fetch_countries(api_key):
-    headers = {"Ocp-Apim-Subscription-Key": api_key}
-    url = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
     params = {
-        "reporterCode": "",  # UK as sample
+        "reporterCode": "",
         "period": 2022,
         "flowCode": "M",
         "cmdCode": "TOTAL",
@@ -27,48 +20,22 @@ def fetch_countries(api_key):
         "breakdownMode": "classic",
         "includeDesc": True
     }
-    try:
-        res = requests.get(url, params=params, headers=headers)
-        if res.status_code == 200:
-            data = res.json().get("data", [])
-            partners = sorted(list({
-                rec["partnerCode"]: rec["partnerDesc"]
-                for rec in data if rec.get("partnerCode") and rec.get("partnerDesc")
-            }.items()), key=lambda x: x[1])
-            return [{"label": f"{name} ({code})", "value": str(code)} for code, name in partners]
-    except Exception as e:
-        print("❌ Exception while fetching countries:", e)
-    return []
+    data = fetch_comtrade_data(params, api_key)
+    partners = sorted(list({
+        rec["partnerCode"]: rec["partnerDesc"]
+        for rec in data if rec.get("partnerCode") and rec.get("partnerDesc")
+    }.items()), key=lambda x: x[1])
+    return [{"label": f"{name} ({code})", "value": str(code)} for code, name in partners]
 
-# Static dropdown options
+
+# Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2010, 2024)]
-commodity_options = [
-    {"label": "Semiconductors (8541)", "value": "8541"},
-    {"label": "Vaccines (3002)", "value": "3002"},
-    {"label": "Lithium Batteries (8507)", "value": "8507"},
-    {"label": "Rare-earth metals (2805)", "value": "2805"},
-    {"label": "Bird's eggs (0407)", "value": "0407"}
-]
 
-# === Helper Functions ===
-def fetch_comtrade_data(params, api_key, retries=3):
-    headers = {"Ocp-Apim-Subscription-Key": api_key}
-    for attempt in range(retries):
-        try:
-            response = requests.get("https://comtradeapi.un.org/data/v1/get/C/A/HS", params=params, headers=headers)
-            if response.status_code == 200:
-                return response.json().get("data", [])
-            elif response.status_code == 429:
-                time.sleep(5 * (attempt + 1))
-        except requests.exceptions.RequestException as e:
-            print("Connection error:", e)
-    return []
-
-def is_valid_partner(partner):
-    if not partner:
-        return False
-    partner = partner.lower()
-    return not any(x in partner for x in ["world"])
+# Get semiconductors commodity list
+def prepare_commodities():
+    df = pd.read_csv("data/semiconductors_labels.csv")    
+    commodity_options = df[["label", "value"]].to_dict(orient="records")
+    return commodity_options
 
 def get_trade_partners(reporter, flow, hs_code, year, api_key):
     params = {
@@ -139,7 +106,7 @@ app.layout = html.Div([
     ),
 
     html.Label("🛠️ Select a Commodity (HS Code):"),
-    dcc.Dropdown(id='commodity-dropdown', options=commodity_options, value="8541", clearable=False),
+    dcc.Dropdown(id='commodity-dropdown', options=prepare_commodities(), value="8541", clearable=False),
 
     dcc.Loading(
         id="loading-commodity-analysis",
@@ -174,6 +141,7 @@ def update_api_key_store(api_key_input):
 )
 def get_top_vulnerable_goods(country_code, year, api_key):
     results = []
+    commodity_options = prepare_commodities()
     for item in commodity_options:
         hs_code = item['value']
         label = item['label']
@@ -311,12 +279,10 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     return metrics_text, fig
 
-# 🚀 Run App
+# Run App
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, port=8055)
 
-
-# In[ ]:
 
 
 
