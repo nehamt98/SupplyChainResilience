@@ -9,6 +9,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from utils.main_utils import fetch_comtrade_data, is_valid_partner
 
+# To store cached data
+trade_data_cache = {}
+
 # Fetch Countries Based on Partner Data
 def fetch_countries():
     countries_df = pd.read_csv("data/countries.csv")
@@ -22,9 +25,13 @@ def prepare_commodities():
     commodities_df = pd.read_csv("data/semiconductors_labels.csv")    
     return commodities_df.to_dict(orient="records")
 
-def get_trade_partners(reporter, flow, hs_code, year, api_key):
+def get_trade_partners(country, flow, hs_code, year, api_key):
+    cache_key = (country, year, hs_code, flow)
+    if cache_key in trade_data_cache:
+        return trade_data_cache[cache_key]
+    
     params = {
-        "reporterCode": reporter,
+        "reporterCode": country,
         "period": year,
         "flowCode": flow,
         "cmdCode": hs_code,
@@ -44,6 +51,8 @@ def get_trade_partners(reporter, flow, hs_code, year, api_key):
                     partner_values[partner] = partner_values.get(partner, 0) + val
             except ValueError:
                 continue
+    
+    trade_data_cache[cache_key] = partner_values
     return partner_values
 
 def calculate_scri(imports, exports):
@@ -278,8 +287,3 @@ def analyze_selected_commodities(country_code, year, hs_codes, api_key):
 # Run App
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, port=8055)
-
-
-
-
-
