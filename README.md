@@ -119,3 +119,4 @@ Based on the SCRI score:
 - Dropdowns are dynamically generated from preloaded CSVs.
 - Detailed explanation of the metrics used - [Vulnerability_Calculation.md](docs/Vulnerability_Calculation.md)
 - Correlation analysis of the scores - [scores_correlation.ipynb](notebooks/scores_correlation.ipynb)
+
