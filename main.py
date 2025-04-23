@@ -101,7 +101,7 @@ app.layout = html.Div([
             dcc.Graph(id='imports-pie-chart')
         ]
     ),
-    html.Label("📦 Select Critical Commodities to Analyze:"),
+    html.Label("📦 Select Critical Commodities to Compare:"),
     dcc.Dropdown(
         id='multi-commodity-select',
         options=prepare_commodities(),
@@ -142,6 +142,9 @@ def update_api_key_store(api_key_input):
      Input('api-key-store', 'data')]
 )
 def update_country_analysis(country_code, year, hs_code, api_key):
+    if not country_code or not hs_code or not api_key:
+        raise exceptions.PreventUpdate
+    
     import_data = get_trade_partners(country_code, "M", hs_code, year, api_key)
     export_data = get_trade_partners(country_code, "X", hs_code, year, api_key)
 
@@ -247,7 +250,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
      Input('api-key-store', 'data')]
 )
 def analyze_selected_commodities(country_code, year, hs_codes, api_key):
-    if not hs_codes or hs_codes == [] or api_key is None:
+    if not hs_codes or hs_codes == [] or not country_code or api_key is None:
         raise exceptions.PreventUpdate
 
     results = []
