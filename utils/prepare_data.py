@@ -1,6 +1,10 @@
 import pandas as pd
 from main_utils import fetch_comtrade_data
 import os
+from dotenv import load_dotenv
+
+# Load variables from .env file
+load_dotenv()
 
 api_key = os.getenv("API_KEY")
 
@@ -43,5 +47,26 @@ def prepare_commodities(dataset):
 
     commodity_df.to_csv("data/" + dataset + "_labels.csv", index=False)
 
-# Enter the name of the csv file
+def load_countries():
+    params = {
+        "reporterCode": "",
+        "period": 2022,
+        "flowCode": "M",
+        "cmdCode": "TOTAL",
+        "freq": "A",
+        "breakdownMode": "classic",
+        "includeDesc": True
+    }
+    data = fetch_comtrade_data(params, api_key)
+    partners = sorted(list({
+        rec["partnerCode"]: rec["partnerDesc"]
+        for rec in data if rec.get("partnerCode") and rec.get("partnerDesc")
+    }.items()), key=lambda x: x[1])
+    countries_list = [{"label": f"{name} ({code})", "value": str(code)} for code, name in partners]
+    countries_df = pd.DataFrame(countries_list)
+    countries_df.to_csv("data/countries.csv", index=False)  
+
+# Enter the name of the csv file to load the labels and values of the commodities
 prepare_commodities("semiconductors")
+# Load the list of countries
+load_countries()

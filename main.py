@@ -10,32 +10,18 @@ import plotly.graph_objects as go
 from utils.main_utils import fetch_comtrade_data, is_valid_partner
 
 # Fetch Countries Based on Partner Data
-def fetch_countries(api_key):
-    params = {
-        "reporterCode": "",
-        "period": 2022,
-        "flowCode": "M",
-        "cmdCode": "TOTAL",
-        "freq": "A",
-        "breakdownMode": "classic",
-        "includeDesc": True
-    }
-    data = fetch_comtrade_data(params, api_key)
-    partners = sorted(list({
-        rec["partnerCode"]: rec["partnerDesc"]
-        for rec in data if rec.get("partnerCode") and rec.get("partnerDesc")
-    }.items()), key=lambda x: x[1])
-    return [{"label": f"{name} ({code})", "value": str(code)} for code, name in partners]
-
+def fetch_countries():
+    countries_df = pd.read_csv("data/countries.csv")
+    print(countries_df)
+    return countries_df.to_dict(orient="records")   
 
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2010, 2024)]
 
 # Get semiconductors commodity list
 def prepare_commodities():
-    df = pd.read_csv("data/semiconductors_labels.csv")    
-    commodity_options = df[["label", "value"]].to_dict(orient="records")
-    return commodity_options
+    commodities_df = pd.read_csv("data/semiconductors_labels.csv")    
+    return commodities_df.to_dict(orient="records")
 
 def get_trade_partners(reporter, flow, hs_code, year, api_key):
     params = {
@@ -91,7 +77,7 @@ app.layout = html.Div([
     html.Div(id='api-key-status', style={'marginBottom': '20px', 'color': 'green'}),
 
     html.Label("🌍 Select a Country:"),
-    dcc.Dropdown(id='country-dropdown', options=[], value="826", clearable=False),
+    dcc.Dropdown(id='country-dropdown', options=fetch_countries(), value="", clearable=False),
 
     html.Label("📅 Select a Year:"),
     dcc.Dropdown(id='year-dropdown', options=year_options, value=2022, clearable=False),
@@ -106,7 +92,7 @@ app.layout = html.Div([
     ),
 
     html.Label("🛠️ Select a Commodity (HS Code):"),
-    dcc.Dropdown(id='commodity-dropdown', options=prepare_commodities(), value="8541", clearable=False),
+    dcc.Dropdown(id='commodity-dropdown', options=prepare_commodities(), value="", clearable=False),
 
     dcc.Loading(
         id="loading-commodity-analysis",
@@ -121,15 +107,14 @@ app.layout = html.Div([
 # Store API Key
 @app.callback(
     [Output('api-key-store', 'data'),
-     Output('api-key-status', 'children'),
-     Output('country-dropdown', 'options')],
+     Output('api-key-status', 'children')],
     Input('api-key-input', 'value')
 )
 def update_api_key_store(api_key_input):
     if api_key_input:
-        countries = fetch_countries(api_key_input)
-        return api_key_input, "✅ API key stored successfully.", countries
-    return no_update, "", []
+        # countries = fetch_countries(api_key_input)
+        return api_key_input, "✅ API key stored successfully."
+    return no_update, ""
 
 # Callback for Top 3 Vulnerable Goods and Bar Chart
 @app.callback(
