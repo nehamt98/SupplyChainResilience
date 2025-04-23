@@ -4,7 +4,7 @@
 
 # Required Libraries
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output, no_update
+from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
 from utils.main_utils import fetch_comtrade_data, is_valid_partner
@@ -12,7 +12,6 @@ from utils.main_utils import fetch_comtrade_data, is_valid_partner
 # Fetch Countries Based on Partner Data
 def fetch_countries():
     countries_df = pd.read_csv("data/countries.csv")
-    print(countries_df)
     return countries_df.to_dict(orient="records")   
 
 # Year dropdown options
@@ -82,15 +81,6 @@ app.layout = html.Div([
     html.Label("📅 Select a Year:"),
     dcc.Dropdown(id='year-dropdown', options=year_options, value=2022, clearable=False),
 
-    dcc.Loading(
-        id="loading-vulnerability",
-        type="circle",
-        children=[
-            html.Div(id='top-vulnerable-output', style={"marginTop": "20px", "marginBottom": "20px"}),
-            dcc.Graph(id='scri-bar-chart')
-        ]
-    ),
-
     html.Label("🛠️ Select a Commodity (HS Code):"),
     dcc.Dropdown(id='commodity-dropdown', options=prepare_commodities(), value="", clearable=False),
 
@@ -101,7 +91,24 @@ app.layout = html.Div([
             html.Div(id='metrics-output', style={"marginTop": "20px", "marginBottom": "20px"}),
             dcc.Graph(id='imports-pie-chart')
         ]
-    )
+    ),
+    html.Label("📦 Select Critical Commodities to Analyze:"),
+    dcc.Dropdown(
+        id='multi-commodity-select',
+        options=prepare_commodities(),
+        multi=True,
+        placeholder="Select 1 or more commodities",
+        style={'marginBottom': '20px'}
+    ),
+
+    dcc.Loading(
+        id="loading-multi-scri",
+        type="circle",
+        children=[
+            html.Div(id='multi-commodity-output'),
+            dcc.Graph(id='multi-scri-bar-chart')
+        ]
+    ),
 ])
 
 # Store API Key
@@ -115,49 +122,6 @@ def update_api_key_store(api_key_input):
         # countries = fetch_countries(api_key_input)
         return api_key_input, "✅ API key stored successfully."
     return no_update, ""
-
-# Callback for Top 3 Vulnerable Goods and Bar Chart
-@app.callback(
-    [Output('top-vulnerable-output', 'children'),
-     Output('scri-bar-chart', 'figure')],
-    [Input('country-dropdown', 'value'),
-     Input('year-dropdown', 'value'),
-     Input('api-key-store', 'data')]
-)
-def get_top_vulnerable_goods(country_code, year, api_key):
-    results = []
-    commodity_options = prepare_commodities()
-    for item in commodity_options:
-        hs_code = item['value']
-        label = item['label']
-        imports = get_trade_partners(country_code, "M", hs_code, year, api_key)
-        exports = get_trade_partners(country_code, "X", hs_code, year, api_key)
-        if imports:
-            scri = calculate_scri(imports, exports)
-            results.append((label, scri['SCRI']))
-
-    if not results:
-        return html.Div("No data available to calculate vulnerabilities."), {}
-
-    top3 = sorted(results, key=lambda x: x[1], reverse=True)[:3]
-    bar_fig = go.Figure(go.Bar(
-        x=[x[1] for x in results],
-        y=[x[0] for x in results],
-        orientation='h',
-        marker=dict(color='firebrick')
-    ))
-    bar_fig.update_layout(
-        title="SCRI Scores for All Critical Goods",
-        xaxis_title="SCRI Score",
-        yaxis_title="Commodity",
-        template="plotly_white",
-        height=400
-    )
-
-    return html.Div([
-        html.H3("🔺 Top 3 Vulnerable Critical Goods (by SCRI)"),
-        html.Ul([html.Li(f"{label}: SCRI = {scri:.4f}") for label, scri in top3])
-    ]), bar_fig
 
 # Callback for Individual Commodity Analysis with Policy Block
 @app.callback(
@@ -263,6 +227,53 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     )
 
     return metrics_text, fig
+
+# Callback for user selected commodities comparison
+@app.callback(
+    [Output('multi-commodity-output', 'children'),
+     Output('multi-scri-bar-chart', 'figure')],
+    [Input('country-dropdown', 'value'),
+     Input('year-dropdown', 'value'),
+     Input('multi-commodity-select', 'value'),
+     Input('api-key-store', 'data')]
+)
+def analyze_selected_commodities(country_code, year, hs_codes, api_key):
+    if not hs_codes or hs_codes == [] or api_key is None:
+        raise exceptions.PreventUpdate
+
+    results = []
+    for hs_code in hs_codes:
+        imports = get_trade_partners(country_code, "M", hs_code, year, api_key)
+        exports = get_trade_partners(country_code, "X", hs_code, year, api_key)
+        if imports:
+            scri = calculate_scri(imports, exports)
+            full_label = next((c['label'] for c in prepare_commodities() if c['value'] == hs_code), f"HS {hs_code}")
+            short_label = (full_label[:50] + "...") if len(full_label) > 50 else full_label
+            results.append({"short_label": short_label, "full_label": full_label, "scri": scri['SCRI']})
+
+    if not results:
+        return html.Div("No SCRI data available for selected commodities."), go.Figure()
+
+    bar_fig = go.Figure(go.Bar(
+        x=[item["scri"] for item in results],
+        y=[item["short_label"] for item in results],
+        orientation='h',
+        marker=dict(color='darkcyan'),
+        hovertext=[item["full_label"] for item in results],
+        hoverinfo="text+x"
+    ))
+    bar_fig.update_layout(
+        title="SCRI Scores for Selected Commodities",
+        xaxis_title="SCRI Score",
+        yaxis_title="Commodity",
+        template="plotly_white",
+        height=400
+    )
+
+    return html.Div([
+        html.H4("🔍 SCRI Scores for Selected Commodities"),
+        html.Ul([html.Li(f"{item['full_label']}: SCRI = {item['scri']:.4f}") for item in results])
+    ]), bar_fig
 
 # Run App
 if __name__ == '__main__':
