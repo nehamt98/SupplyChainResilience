@@ -7,71 +7,10 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
-from utils.main_utils import fetch_comtrade_data, is_valid_partner
-
-# To store cached data
-trade_data_cache = {}
-
-# Fetch Countries Based on Partner Data
-def fetch_countries():
-    countries_df = pd.read_csv("data/countries.csv")
-    return countries_df.to_dict(orient="records")   
+from utils.main_utils import fetch_countries, fetch_commodities, get_trade_partners, calculate_scri
 
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2010, 2024)]
-
-# Get semiconductors commodity list
-def prepare_commodities():
-    commodities_df = pd.read_csv("data/semiconductors_labels.csv")    
-    return commodities_df.to_dict(orient="records")
-
-def get_trade_partners(country, flow, hs_code, year, api_key):
-    cache_key = (country, year, hs_code, flow)
-    if cache_key in trade_data_cache:
-        return trade_data_cache[cache_key]
-    
-    params = {
-        "reporterCode": country,
-        "period": year,
-        "flowCode": flow,
-        "cmdCode": hs_code,
-        "freq": "A",
-        "breakdownMode": "classic",
-        "includeDesc": True
-    }
-    data = fetch_comtrade_data(params, api_key)
-    partner_values = {}
-    for rec in data:
-        partner = rec.get("partnerDesc")
-        value = rec.get("primaryValue")
-        if is_valid_partner(partner) and value:
-            try:
-                val = float(value)
-                if val > 0:
-                    partner_values[partner] = partner_values.get(partner, 0) + val
-            except ValueError:
-                continue
-    
-    trade_data_cache[cache_key] = partner_values
-    return partner_values
-
-def calculate_scri(imports, exports):
-    M = sum(imports.values())
-    X = sum(exports.values())
-    N = len(imports)
-    HHI = sum((v / M) ** 2 for v in imports.values()) if M > 0 else 0.0
-    DiversityScore = min(N / 193.0, 1.0)
-    IDI = max(min((M - X) / M, 1.0), 0.0) if M > 0 else 0.0
-    SCRI = round(HHI * (1 - DiversityScore) * IDI, 4)
-    return {
-        "Total Imports": M,
-        "Total Exports": X,
-        "HHI": round(HHI, 4),
-        "Diversity Score": round(DiversityScore, 4),
-        "IDI": round(IDI, 4),
-        "SCRI": SCRI,
-        "Import Partners": N
-    }
 
 # Dash App Layout
 app = Dash(__name__)
@@ -90,8 +29,8 @@ app.layout = html.Div([
     html.Label("📅 Select a Year:"),
     dcc.Dropdown(id='year-dropdown', options=year_options, value=2022, clearable=False),
 
-    html.Label("🛠️ Select a Commodity (HS Code):"),
-    dcc.Dropdown(id='commodity-dropdown', options=prepare_commodities(), value="", clearable=False),
+    html.Label("🛠️ Select a Commodity:"),
+    dcc.Dropdown(id='commodity-dropdown', options=fetch_commodities(), value="", clearable=False),
 
     dcc.Loading(
         id="loading-commodity-analysis",
@@ -104,7 +43,7 @@ app.layout = html.Div([
     html.Label("📦 Select Critical Commodities to Compare:"),
     dcc.Dropdown(
         id='multi-commodity-select',
-        options=prepare_commodities(),
+        options=fetch_commodities(),
         multi=True,
         placeholder="Select 1 or more commodities",
         style={'marginBottom': '20px'}
@@ -120,7 +59,7 @@ app.layout = html.Div([
     ),
 ])
 
-# Store API Key
+# Callback when API key is updated
 @app.callback(
     [Output('api-key-store', 'data'),
      Output('api-key-status', 'children')],
@@ -240,7 +179,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     return metrics_text, fig
 
-# Callback for user selected commodities comparison
+# Callback for update in multi-commodity selection
 @app.callback(
     [Output('multi-commodity-output', 'children'),
      Output('multi-scri-bar-chart', 'figure')],
