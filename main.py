@@ -198,7 +198,7 @@ def analyze_selected_commodities(country_code, year, hs_codes, api_key):
         exports = get_trade_partners(country_code, "X", hs_code, year, api_key)
         if imports:
             scri = calculate_scri(imports, exports)
-            full_label = next((c['label'] for c in prepare_commodities() if c['value'] == hs_code), f"HS {hs_code}")
+            full_label = next((c['label'] for c in fetch_commodities() if c['value'] == hs_code), f"HS {hs_code}")
             short_label = (full_label[:50] + "...") if len(full_label) > 50 else full_label
             results.append({"short_label": short_label, "full_label": full_label, "scri": scri['SCRI']})
 
