@@ -7,7 +7,7 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
-from utils.main_utils import fetch_countries, fetch_commodities, get_trade_partners, calculate_scri
+from utils.main_utils import fetch_countries, fetch_commodities, get_trade_partners, calculate_scri, get_top_exporters
 
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2010, 2024)]
@@ -91,6 +91,13 @@ def update_country_analysis(country_code, year, hs_code, api_key):
         return [html.Div("No import data available for this selection."), {}]
 
     scri_result = calculate_scri(import_data, export_data)
+    
+    top_exporters = get_top_exporters(country_code, hs_code, import_data, api_key)
+    exporter_suggestions = html.Ul([
+        html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}") for code, export_details in top_exporters.items()
+    ]) if top_exporters else None
+
+
     metrics_text = [
         html.H4("📊 Supply Chain Risk Metrics"),
         html.Div(f"Herfindahl-Hirschman Index (HHI): {scri_result['HHI']}"),
@@ -103,42 +110,56 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     scri_score = scri_result['SCRI']
     if scri_score > 0.5:
-        recommendation = html.Div([
-            html.H5("⚠️ Policy Recommendation: High Supply Chain Vulnerability"),
+        recommendation_children = [
+            html.H4("⚠️ Policy Recommendation: High Supply Chain Vulnerability"),
             html.P("The SCRI score indicates a high risk. The country is heavily dependent on a few suppliers and lacks diversification."),
             html.Ul([
-                html.Li("🔄 Diversify import partners by exploring new exporters of this commodity."),
-                html.Li("🏭 Invest in domestic production capacity where feasible."),
-                html.Li("📉 Reduce import dependency by seeking regional trade agreements or alternatives."),
-                html.Li("📦 Build inventory buffers to handle disruptions.")
-            ])
-        ], style={
+            html.Li("🔄 Diversify import partners by exploring new exporters of this commodity."),
+            html.Li("🏭 Invest in domestic production capacity where feasible."),
+            html.Li("📉 Reduce import dependency by seeking regional trade agreements or alternatives."),
+            html.Li("📦 Build inventory buffers to handle disruptions.")
+            ])]
+        if exporter_suggestions:
+            recommendation_children += [
+                html.H4("🌍 Suggested New Trade Partners (Top Exporters)"),
+                html.P("Consider exploring imports from these top global exporters of this good:"),
+                exporter_suggestions
+            ]
+        style={
             "backgroundColor": "#f8d7da",
             "border": "1px solid #f5c6cb",
             "padding": "15px",
             "borderRadius": "6px",
             "color": "#721c24",
             "marginTop": "20px"
-        })
+        }
+        recommendation = html.Div(recommendation_children, style = style)
 
     elif scri_score > 0.2:
-        recommendation = html.Div([
-            html.H5("🟡 Policy Recommendation: Medium Supply Chain Risk"),
+        recommendation_children = [
+            html.H4("🟡 Policy Recommendation: Medium Supply Chain Risk"),
             html.P("The SCRI score suggests moderate risk. There is room for improvement in supplier diversity or dependency."),
             html.Ul([
                 html.Li("🌍 Explore and engage with new international suppliers."),
                 html.Li("📈 Monitor geopolitical and economic trends in current supplier countries."),
                 html.Li("📊 Encourage redundancy by balancing supplier concentration."),
                 html.Li("🤝 Consider bilateral trade discussions with emerging exporters.")
-            ])
-        ], style={
+            ])]
+        if exporter_suggestions:
+            recommendation_children += [
+                html.H4("🌍 Suggested New Trade Partners (Top Exporters)"),
+                html.P("Consider exploring imports from these top global exporters of this good:"),
+                exporter_suggestions
+            ]
+        style={
             "backgroundColor": "#fff3cd",
             "border": "1px solid #ffeeba",
             "padding": "15px",
             "borderRadius": "6px",
             "color": "#856404",
             "marginTop": "20px"
-        })
+        }
+        recommendation = html.Div(recommendation_children, style = style)
 
     else:
         recommendation = html.Div([

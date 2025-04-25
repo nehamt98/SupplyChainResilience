@@ -72,9 +72,9 @@ def get_trade_partners(country, flow, hs_code, year, api_key):
     Uses in-memory caching to avoid repeated API calls for the same query.
 
     Args:
-        country (str): UN Comtrade reporter country code.
+        country (int): UN Comtrade reporter country code.
         flow (str): 'M' for imports or 'X' for exports.
-        hs_code (str or int): Harmonized System commodity code (6-digit).
+        hs_code (int): Harmonized System commodity code (6-digit).
         year (int): Year of trade data.
         api_key (str): User's API key for the UN Comtrade API.
 
@@ -144,3 +144,62 @@ def calculate_scri(imports, exports):
         "SCRI": SCRI,
         "Import Partners": N
     }
+
+# To store cached data
+top_exporters_data_cache = {}
+
+def get_top_exporters(country_code, hs_code, import_partners, api_key):
+    """
+    Returns top 3 exporters of a good (excluding the selected country itself).
+
+    Args:
+        country_code (int): The code of the selected country.
+        hs_code (int): Harmonized System commodity code (6-digit).
+        year (int): Year of trade data.
+        import_partners (dict): Import partners as {country_name: value} from get_trade_partners()
+        api_key (str): UN Comtrade API key.
+    Returns:
+        dict or None: Top 3 exporters as {code: [value, name]}, or None if selected country is one of them.
+    """
+    cache_key = (hs_code)
+    if cache_key in top_exporters_data_cache:
+        sorted_exporters = top_exporters_data_cache[cache_key]
+    else:
+        params = {
+            "reporterCode": "",
+            "period": 2023,
+            "flowCode": "X",
+            "cmdCode": hs_code,
+            "freq": "A",
+            "breakdownMode": "classic",
+            "includeDesc": True
+        }
+        data = fetch_comtrade_data(params, api_key)
+        export_values = {}
+        for rec in data:
+            reporter = rec.get("reporterDesc")
+            value = rec.get("primaryValue")
+            code = rec.get("reporterCode")
+            if code and is_valid_partner(reporter) and value:
+                try:
+                    val = float(value)
+                    if val > 0:
+                        if code not in export_values:
+                            export_values[code] = [0, reporter]
+                        export_values[code][0] += val  # add to value
+                except ValueError:
+                    continue
+        sorted_exporters = sorted(export_values.items(), key=lambda item: item[1][0], reverse=True)
+        top_exporters_data_cache[cache_key] = sorted_exporters
+
+    # Filter out the selected country and current import partners
+    current_importers = set(import_partners.keys())
+    filtered = [
+        (code, details) for code, details in sorted_exporters
+        if details[1] not in current_importers and code != country_code
+    ]
+
+    top_3_filtered = dict(filtered[:3])
+
+    return top_3_filtered if top_3_filtered else None
+
