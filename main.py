@@ -92,7 +92,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     scri_result = calculate_scri(import_data, export_data)
     
-    top_exporters = get_top_exporters(country_code, hs_code, import_data, api_key)
+    top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
     exporter_suggestions = html.Ul([
         html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}") for code, export_details in top_exporters.items()
     ]) if top_exporters else None

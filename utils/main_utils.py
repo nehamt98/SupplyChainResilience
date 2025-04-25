@@ -148,7 +148,7 @@ def calculate_scri(imports, exports):
 # To store cached data
 top_exporters_data_cache = {}
 
-def get_top_exporters(country_code, hs_code, import_partners, api_key):
+def get_top_exporters(country_code, hs_code, year, import_partners, api_key):
     """
     Returns top 3 exporters of a good (excluding the selected country itself).
 
@@ -161,13 +161,13 @@ def get_top_exporters(country_code, hs_code, import_partners, api_key):
     Returns:
         dict or None: Top 3 exporters as {code: [value, name]}, or None if selected country is one of them.
     """
-    cache_key = (hs_code)
+    cache_key = (hs_code, year)
     if cache_key in top_exporters_data_cache:
         sorted_exporters = top_exporters_data_cache[cache_key]
     else:
         params = {
             "reporterCode": "",
-            "period": 2023,
+            "period": year,
             "flowCode": "X",
             "cmdCode": hs_code,
             "freq": "A",
