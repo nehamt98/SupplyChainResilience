@@ -53,7 +53,7 @@ Contains all reusable utility functions used by the app, including:
 - is_valid_partner() – Filters out non-country or aggregate trade partners
 - fetch_countries() – Loads preprocessed country dropdown data
 - fetch_commodities() – Loads the list of HS codes and commodity names
-- get_trade_partners() – Retrieves trade values by partner for a given commodity
+- get_trade_info() – Retrieves trade values by partner for a given commodity
 - calculate_scri() – Computes HHI, IDI, Diversity Score, and the composite SCRI
 
 These functions are imported into main.py.

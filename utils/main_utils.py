@@ -62,61 +62,82 @@ def fetch_commodities(sector):
     commodities_df["label"] = commodities_df["label"] + " (" + commodities_df["value"].astype(str) + ")"
     return commodities_df.to_dict(orient="records")
 
-# To store cached data
-trade_data_cache = {}
+# To store cache data
+import_data_cache = {}
+export_data_cache = {}
+exporter_count_cache = {}
 
-def get_trade_partners(country, flow, hs_code, year, api_key):
+def get_trade_info(country, hs_code, year, api_key):
     """
-    Retrieves trade partner values for a given country, commodity, year, and trade flow type.
+    Retrieves trade partner values for a given country, commodity and year.
 
     Uses in-memory caching to avoid repeated API calls for the same query.
 
     Args:
         country (int): UN Comtrade reporter country code.
-        flow (str): 'M' for imports or 'X' for exports.
         hs_code (int): Harmonized System commodity code (6-digit).
         year (int): Year of trade data.
         api_key (str): User's API key for the UN Comtrade API.
 
     Returns:
-        dict: Dictionary mapping partner countries to trade values (USD).
+        dict: Dictionary mapping partner countries to import trade values (USD).
+        dict: Dictionary mapping partner countries to export trade values (USD).
+        int: Number of exporters of the good
     """
-    cache_key = (country, year, hs_code, flow)
-    if cache_key in trade_data_cache:
-        return trade_data_cache[cache_key]
+    cache_key = (country, year, hs_code)
+    if cache_key in import_data_cache and cache_key in export_data_cache:
+        return import_data_cache[cache_key], export_data_cache[cache_key], exporter_count_cache[cache_key]
     
     params = {
-        "reporterCode": country,
+        "reporterCode": "",
         "period": year,
-        "flowCode": flow,
+        "flowCode": "",
         "cmdCode": hs_code,
         "freq": "A",
         "breakdownMode": "classic",
         "includeDesc": True
     }
     data = fetch_comtrade_data(params, api_key)
-    partner_values = {}
+    partner_values_import = {}
+    partner_values_export = {}
+    exporter_count = set()
     for rec in data:
+        reporter = rec.get("reporterCode")
+        reporter_name = rec.get("reporterDesc")
         partner = rec.get("partnerDesc")
         value = rec.get("primaryValue")
-        if is_valid_partner(partner) and value:
-            try:
-                val = float(value)
-                if val > 0:
-                    partner_values[partner] = partner_values.get(partner, 0) + val
-            except ValueError:
-                continue
-    
-    trade_data_cache[cache_key] = partner_values
-    return partner_values
 
-def calculate_scri(imports, exports):
+        if is_valid_partner(partner) and is_valid_partner(reporter_name) and value:
+            if rec.get("flowCode") == "M":
+                exporter_count.add(partner)
+
+            if reporter == country:
+                try:
+                    val = float(value)
+                    if val > 0:
+                        if rec.get("flowCode") == "M":
+                            partner_values_import[partner] = partner_values_import.get(partner, 0) + val
+                        elif rec.get("flowCode") == "X":
+                            partner_values_export[partner] = partner_values_export.get(partner, 0) + val
+                except ValueError:
+                    continue
+    
+    import_data_cache[cache_key] = partner_values_import
+    export_data_cache[cache_key] = partner_values_export
+    exporter_count_cache[cache_key] = len(exporter_count)
+    print(exporter_count)
+
+    return partner_values_import, partner_values_export, len(exporter_count)
+
+
+def calculate_scri(imports, exports, export_count):
     """
     Calculates the Supply Chain Resilience Index (SCRI) for a commodity.
 
     Args:
         imports (dict): Dictionary of import values by partner country.
         exports (dict): Dictionary of export values by partner country.
+        export_count (int): Number of exporters for a commodity.
 
     Returns:
         dict: A dictionary containing:
@@ -132,9 +153,9 @@ def calculate_scri(imports, exports):
     X = sum(exports.values())
     N = len(imports)
     HHI = sum((v / M) ** 2 for v in imports.values()) if M > 0 else 0.0
-    DiversityScore = min(N / 193.0, 1.0)
+    DiversityScore = min(N / export_count, 1.0)
     IDI = max(min((M - X) / M, 1.0), 0.0) if M > 0 else 0.0
-    SCRI = round(HHI * (1 - DiversityScore) * IDI, 4)
+    SCRI = round(HHI *  (1-DiversityScore) * IDI, 4)
     return {
         "Total Imports": M,
         "Total Exports": X,

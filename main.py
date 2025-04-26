@@ -7,13 +7,14 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
-from utils.main_utils import fetch_countries, fetch_commodities, get_trade_partners, calculate_scri, get_top_exporters
+from utils.main_utils import fetch_countries, fetch_commodities, calculate_scri, get_top_exporters, get_trade_info
 import copy
 
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2023, 2010, -1)]
 
 # Sector options
+# Add your sector here
 sector_options = [
             {"label": "Semiconductors", "value": "semiconductors"},
             {"label": "Public Health", "value": "public_health"},
@@ -215,8 +216,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     if not country_code or not hs_code or not api_key:
         raise exceptions.PreventUpdate
     
-    import_data = get_trade_partners(country_code, "M", hs_code, year, api_key)
-    export_data = get_trade_partners(country_code, "X", hs_code, year, api_key)
+    import_data, export_data, export_count = get_trade_info(country_code, hs_code, year, api_key)
 
     # Populate when data is missing
     if not import_data:
@@ -232,7 +232,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
             )
         )
 
-    scri_result = calculate_scri(import_data, export_data)
+    scri_result = calculate_scri(import_data, export_data, export_count)
 
     # Populate left panel
     metrics_text = html.Div([
@@ -418,14 +418,20 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 )
 def analyze_selected_commodities(country_code, year, hs_codes, api_key, sector):
     if not hs_codes or hs_codes == [] or not country_code or api_key is None:
-        raise exceptions.PreventUpdate
+        # show placeholder text and an empty figure when nothing is selected
+        placeholder = html.Div(
+            "🔍 Select 1 or more commodities above to see their SCRI scores",
+            style={"textAlign": "center", "color": "gray", "marginTop": "20px"}
+        )
+        empty_fig = go.Figure()
+        return placeholder, empty_fig
 
     results = []
     for hs_code in hs_codes:
-        imports = get_trade_partners(country_code, "M", hs_code, year, api_key)
-        exports = get_trade_partners(country_code, "X", hs_code, year, api_key)
+        imports, exports, export_count = get_trade_info(country_code, hs_code, year, api_key)
+
         if imports:
-            scri = calculate_scri(imports, exports)
+            scri = calculate_scri(imports, exports, export_count)
             full_label = next((c['label'] for c in fetch_commodities(sector) if c['value'] == hs_code), f"HS {hs_code}")
             short_label = (full_label[:50] + "...") if len(full_label) > 50 else full_label
             results.append({"short_label": short_label, "full_label": full_label, "scri": scri['SCRI']})
