@@ -8,56 +8,175 @@ from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
 from utils.main_utils import fetch_countries, fetch_commodities, get_trade_partners, calculate_scri, get_top_exporters
+import copy
 
 # Year dropdown options
-year_options = [{"label": str(y), "value": y} for y in range(2010, 2024)]
+year_options = [{"label": str(y), "value": y} for y in range(2023, 2010, -1)]
+
+# Sector options
+sector_options = [
+            {"label": "Semiconductors", "value": "semiconductors"},
+            {"label": "Public Health", "value": "public_health"},
+            {"label": "Energy", "value": "energy"},
+        ]
 
 # Dash App Layout
-app = Dash(__name__)
+app = Dash(__name__, external_stylesheets=[
+    "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+])
 app.layout = html.Div([
-    html.H1("📦 Supply Chain Resilience Explorer", style={"textAlign": "center", "color": "#003366"}),
-    html.P("Explore critical goods supply chain metrics for any country and year.", style={"textAlign": "center"}),
+    # Header
+    html.Header([
+        html.H1("📦 Supply Chain Resilience Explorer", style={"textAlign": "center", "fontWeight": "bold", "fontSize": "30px"}),
+        html.P("Explore critical goods supply chain metrics for any country and year.",
+               style={"textAlign": "center", "fontSize": "14px", "color": "gray"})
+    ], style={"marginBottom": "30px"}),
 
-    html.Label("🔑 Enter your API Key:"),
-    dcc.Input(id='api-key-input', type='text', placeholder="Enter API Key", debounce=True, style={'width': '50%'}),
-    dcc.Store(id='api-key-store'),
-    html.Div(id='api-key-status', style={'marginBottom': '20px', 'color': 'green'}),
+    # Top Controls Grid
+    html.Div([
+        html.Div([
+            html.Label("🔑 API Key", style={"fontWeight": "600", "marginRight": "10px"}),
+            dcc.Input(
+                id='api-key-input',
+                type='text',
+                placeholder="Enter API Key",
+                debounce=True,
+                className='border rounded p-2',
+                style={"width": "300px"}
+            )
+        ], style={"display": "flex", "alignItems": "center"}),  # align label and input inline
 
-    html.Label("🌍 Select a Country:"),
-    dcc.Dropdown(id='country-dropdown', options=fetch_countries(), value="", clearable=False),
+        dcc.Store(id='api-key-store'),
+        html.Div(id='api-key-status', style={'marginTop': '5px', 'color': 'green'})
+    ], className="mb-8"),
 
-    html.Label("📅 Select a Year:"),
-    dcc.Dropdown(id='year-dropdown', options=year_options, value=2022, clearable=False),
+    html.Div([
+        html.Div([
+            html.Label("🌍 Country", style={"fontWeight": "600"}),
+            dcc.Dropdown(id='country-dropdown', options=fetch_countries(), value="", clearable=False,
+                         className='select', style={'width': '100%'})
+        ]),
+        html.Div([
+            html.Label("📅 Year", style={"fontWeight": "600"}),
+            dcc.Dropdown(id='year-dropdown', options=year_options, clearable=False,
+                         className='select', style={'width': '100%'})
+        ]),
+         html.Div([
+            html.Label("🌐 Sector", style={"fontWeight": "600"}),
+            dcc.Dropdown(id='sector-dropdown', options=sector_options, clearable=False,
+                         className='select', style={'width': '100%'})
+        ])
+    ], className="grid grid-cols-1 md:grid-cols-3 gap-3"),
 
-    html.Label("🛠️ Select a Commodity:"),
-    dcc.Dropdown(id='commodity-dropdown', options=fetch_commodities(), value="", clearable=False),
+    html.Div([
+        html.Label("📦 Commodity", style={"fontWeight": "600", "marginBottom": "8px"}),
+        dcc.Dropdown(id='commodity-dropdown', clearable=False,
+                        className='select', style={'width': '100%'})
+    ], style={"marginBottom": "30px"}),
 
+    # Risk Metric and Summary
     dcc.Loading(
         id="loading-commodity-analysis",
         type="dot",
-        children=[
-            html.Div(id='metrics-output', style={"marginTop": "20px", "marginBottom": "20px"}),
-            dcc.Graph(id='imports-pie-chart')
-        ]
-    ),
-    html.Label("📦 Select Critical Commodities to Compare:"),
-    dcc.Dropdown(
-        id='multi-commodity-select',
-        options=fetch_commodities(),
-        multi=True,
-        placeholder="Select 1 or more commodities",
-        style={'marginBottom': '20px'}
+        children=html.Div([
+            # Left: Metrics Panel
+            html.Div(
+                id='metrics-output',
+                children=[
+                    html.Div(
+                        "📊 Supply Chain Risk Metrics will appear here after selection.",
+                        style={
+                            "display": "flex",
+                            "justifyContent": "center",
+                            "alignItems": "center",
+                            "height": "100%",
+                            "width": "100%",
+                            "color": "gray",
+                            "fontStyle": "italic",
+                            "textAlign": "center"
+                        }
+                    )
+                ],
+                className="bg-white shadow rounded-xl p-4",
+                style={
+                    "minHeight": "320px",
+                    "display": "flex",
+                    "flexBasis": "25%",
+                    "flexGrow": "1",
+                    "width": "100%"
+                }
+            ),
+
+            # 🥧 Middle: Pie Chart Panel
+            html.Div(
+                dcc.Graph(
+                    id='imports-pie-chart',
+                    style={"height": "280px", "width": "100%"}
+                ),
+                className="bg-white shadow rounded-xl p-4",
+                style={
+                    "minHeight": "320px",
+                    "display": "flex",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "flexBasis": "35%",
+                    "flexGrow": "1",
+                    "minWidth": 0
+                }
+            ),
+
+            # ⚠️ Right: Policy Panel
+            html.Div(
+                id='policy-panel',
+                children=[
+                    html.Div(
+                        "⚠️ Policy Recommendations will appear here after selection.",
+                        style={
+                            "display": "flex",
+                            "justifyContent": "center",
+                            "alignItems": "center",
+                            "height": "100%",
+                            "width": "100%",
+                            "color": "gray",
+                            "fontStyle": "italic",
+                            "textAlign": "center"
+                        }
+                    )
+                ],
+                className="bg-white shadow rounded-xl p-4",
+                style={
+                    "minHeight": "320px",
+                    "display": "flex",
+                    "flexBasis": "40%",
+                    "flexGrow": "1",
+                    "minWidth": 0
+                }
+            )
+        ],
+        className="flex flex-col md:flex-row gap-4 w-full",
+        style={"marginBottom": "30px"})
     ),
 
-    dcc.Loading(
-        id="loading-multi-scri",
-        type="circle",
-        children=[
-            html.Div(id='multi-commodity-output'),
-            dcc.Graph(id='multi-scri-bar-chart')
-        ]
-    ),
-])
+    # Comparison Section
+    html.Div([
+        html.Label("📊 Compare Commodities", style={"fontWeight": "600", "marginBottom": "8px"}),
+        dcc.Dropdown(
+            id='multi-commodity-select',
+            multi=True,
+            placeholder="Select 1 or more commodities",
+            className='select',
+            style={'width': '100%'}
+        ),
+        dcc.Loading(
+            id="loading-multi-scri",
+            type="circle",
+            children=[
+                html.Div(id='multi-commodity-output', style={"marginBottom": "20px"}),
+                dcc.Graph(id='multi-scri-bar-chart', style={"height": "250px"})
+            ]
+        )
+    ], className="bg-white shadow p-4 rounded-xl", style={"marginBottom": "30px"}),
+], className="p-4 space-y-6")
 
 # Callback when API key is updated
 @app.callback(
@@ -67,14 +186,26 @@ app.layout = html.Div([
 )
 def update_api_key_store(api_key_input):
     if api_key_input:
-        # countries = fetch_countries(api_key_input)
         return api_key_input, "✅ API key stored successfully."
     return no_update, ""
+
+# Callback when sector is updated
+@app.callback(
+    [Output('commodity-dropdown', 'options'),
+     Output('multi-commodity-select', 'options')],
+     Input('sector-dropdown', 'value')
+)
+def update_commodity_dropdown(selected_sector):
+    if not selected_sector:
+        raise exceptions.PreventUpdate
+    options = fetch_commodities(selected_sector)
+    return options, options if options else None
 
 # Callback for Individual Commodity Analysis with Policy Block
 @app.callback(
     [Output('metrics-output', 'children'),
-     Output('imports-pie-chart', 'figure')],
+     Output('imports-pie-chart', 'figure'),
+     Output('policy-panel', 'children')],
     [Input('country-dropdown', 'value'),
      Input('year-dropdown', 'value'),
      Input('commodity-dropdown', 'value'),
@@ -87,100 +218,67 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     import_data = get_trade_partners(country_code, "M", hs_code, year, api_key)
     export_data = get_trade_partners(country_code, "X", hs_code, year, api_key)
 
+    # Populate when data is missing
     if not import_data:
-        return [html.Div("No import data available for this selection."), {}]
+        return (
+            html.Div(
+                "⚠️ No import data available for this selection.",
+                style={"textAlign": "center", "color": "gray", "paddingTop": "20px"}
+            ),
+            go.Figure(), 
+            html.Div(
+                "⚠️ No policy recommendations available due to missing data.",
+                style={"textAlign": "center", "color": "gray", "paddingTop": "20px"}
+            )
+        )
 
     scri_result = calculate_scri(import_data, export_data)
-    
-    top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
-    exporter_suggestions = html.Ul([
-        html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}") for code, export_details in top_exporters.items()
-    ]) if top_exporters else None
 
+    # Populate left panel
+    metrics_text = html.Div([
+        html.H4("📊 Supply Chain Risk Metrics", style={
+            "fontSize": "20px",
+            "fontWeight": "600",
+            "marginBottom": "15px"
+        }),
 
-    metrics_text = [
-        html.H4("📊 Supply Chain Risk Metrics"),
-        html.Div(f"Herfindahl-Hirschman Index (HHI): {scri_result['HHI']}"),
-        html.Div(f"Supplier Diversity Score: {scri_result['Diversity Score']}"),
-        html.Div(f"Import Dependency Index (IDI): {scri_result['IDI']}"),
-        html.Div(f"Composite SCRI: {scri_result['SCRI']}", style={"fontWeight": "bold"}),
-        html.Div(f"Total Imports (USD): {scri_result['Total Imports']:,}"),
-        html.Div(f"Total Exports (USD): {scri_result['Total Exports']:,}")
-    ]
+        html.Div([
+            html.Div([
+                html.Span("Herfindahl–Hirschman Index (HHI):", style={"fontWeight": "500"}),
+                html.Span(f"{scri_result['HHI']}")
+            ], className="flex justify-between w-full"),
 
-    scri_score = scri_result['SCRI']
-    if scri_score > 0.5:
-        recommendation_children = [
-            html.H4("⚠️ Policy Recommendation: High Supply Chain Vulnerability"),
-            html.P("The SCRI score indicates a high risk. The country is heavily dependent on a few suppliers and lacks diversification."),
-            html.Ul([
-            html.Li("🔄 Diversify import partners by exploring new exporters of this commodity."),
-            html.Li("🏭 Invest in domestic production capacity where feasible."),
-            html.Li("📉 Reduce import dependency by seeking regional trade agreements or alternatives."),
-            html.Li("📦 Build inventory buffers to handle disruptions.")
-            ])]
-        if exporter_suggestions:
-            recommendation_children += [
-                html.H4("🌍 Suggested New Trade Partners (Top Exporters)"),
-                html.P("Consider exploring imports from these top global exporters of this good:"),
-                exporter_suggestions
-            ]
-        style={
-            "backgroundColor": "#f8d7da",
-            "border": "1px solid #f5c6cb",
-            "padding": "15px",
-            "borderRadius": "6px",
-            "color": "#721c24",
-            "marginTop": "20px"
-        }
-        recommendation = html.Div(recommendation_children, style = style)
+            html.Div([
+                html.Span("Supplier Diversity Score:", style={"fontWeight": "500"}),
+                html.Span(f"{scri_result['Diversity Score']}")
+            ], className="flex justify-between w-full"),
 
-    elif scri_score > 0.2:
-        recommendation_children = [
-            html.H4("🟡 Policy Recommendation: Medium Supply Chain Risk"),
-            html.P("The SCRI score suggests moderate risk. There is room for improvement in supplier diversity or dependency."),
-            html.Ul([
-                html.Li("🌍 Explore and engage with new international suppliers."),
-                html.Li("📈 Monitor geopolitical and economic trends in current supplier countries."),
-                html.Li("📊 Encourage redundancy by balancing supplier concentration."),
-                html.Li("🤝 Consider bilateral trade discussions with emerging exporters.")
-            ])]
-        if exporter_suggestions:
-            recommendation_children += [
-                html.H4("🌍 Suggested New Trade Partners (Top Exporters)"),
-                html.P("Consider exploring imports from these top global exporters of this good:"),
-                exporter_suggestions
-            ]
-        style={
-            "backgroundColor": "#fff3cd",
-            "border": "1px solid #ffeeba",
-            "padding": "15px",
-            "borderRadius": "6px",
-            "color": "#856404",
-            "marginTop": "20px"
-        }
-        recommendation = html.Div(recommendation_children, style = style)
+            html.Div([
+                html.Span("Import Dependency Index (IDI):", style={"fontWeight": "500"}),
+                html.Span(f"{scri_result['IDI']}")
+            ], className="flex justify-between w-full"),
 
-    else:
-        recommendation = html.Div([
-            html.H5("✅ Policy Recommendation: Resilient Supply Chain"),
-            html.P("The SCRI score indicates low risk. The supply chain appears stable and well-diversified."),
-            html.Ul([
-                html.Li("🧭 Continue monitoring supplier performance and global risks."),
-                html.Li("📌 Maintain current diversification strategies."),
-                html.Li("🛡️ Invest in long-term contracts with reliable partners.")
-            ])
-        ], style={
-            "backgroundColor": "#d4edda",
-            "border": "1px solid #c3e6cb",
-            "padding": "15px",
-            "borderRadius": "6px",
-            "color": "#155724",
-            "marginTop": "20px"
-        })
+            html.Div([
+                html.Span("Composite SCRI:", style={"fontWeight": "700"}),
+                html.Span(f"{scri_result['SCRI']}", style={"fontWeight": "700"})
+            ], className="flex justify-between w-full mt-2 mb-4"),
 
-    metrics_text.append(recommendation)
+            html.Hr(style={"margin": "10px 0"}),
 
+            html.Div([
+                html.Span("Total Imports (USD):", style={"fontWeight": "500"}),
+                html.Span(f"{scri_result['Total Imports']:,}")
+            ], className="flex justify-between w-full"),
+
+            html.Div([
+                html.Span("Total Exports (USD):", style={"fontWeight": "500"}),
+                html.Span(f"{scri_result['Total Exports']:,}")
+            ], className="flex justify-between w-full")
+        ], className="w-full space-y-2 text-sm")
+    ],
+    className="w-full")  
+
+    # Populate pie chart
     df_imports = pd.DataFrame(import_data.items(), columns=["partner", "value"])
     df_imports = df_imports.sort_values(by="value", ascending=False)
     if len(df_imports) > 5:
@@ -190,15 +288,123 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     fig = px.pie(df_imports, values='value', names='partner',
                  title=f"Import Sources for HS {hs_code} ({year})", hole=0.4)
-    fig.update_layout(
-        legend_title_text='Partner Country',
-        height=500,
-        margin=dict(t=40, b=20, l=40, r=40),
-        showlegend=True,
-        legend=dict(orientation="v", x=1.05, y=1)
+    total = df_imports['value'].sum()
+    fig.update_traces(
+        texttemplate=[
+            f'{p:.1f}%' if p >= 4 else ''
+            for p in 100 * df_imports['value'] / total
+        ]
     )
 
-    return metrics_text, fig
+    fig.update_layout(
+        title={
+            'text': f"Import Sources for HS {hs_code} ({year})",
+            'x': 0.5,
+            'xanchor': 'center',
+            'font': {"size": 16}
+        },
+        height=280,
+        margin=dict(t=30, b=20, l=10, r=10),
+        showlegend=True,
+        legend=dict(
+            orientation="v",
+            x=1,
+            y=0.5,
+            xanchor="left",
+            valign="middle"
+        )
+    )
+
+    # Populate right panel
+    scri_score = scri_result['SCRI']
+    if scri_score > 0.5:
+        recommendation_children = [
+            html.H4("⚠️ Policy Recommendation: High Supply Chain Vulnerability", style={"fontWeight": "600"}),
+            html.P("The SCRI score indicates a high risk. The country is heavily dependent on a few suppliers and lacks diversification."),
+            html.Ul([
+                html.Li("🔄 Diversify import partners by exploring new exporters of this commodity."),
+                html.Li("🏭 Invest in domestic production capacity where feasible."),
+                html.Li("📉 Reduce import dependency by seeking regional trade agreements or alternatives."),
+                html.Li("📦 Build inventory buffers to handle disruptions.")
+            ], className="list-disc ml-5 mt-2 space-y-1 text-sm")
+        ]
+        panel_style = {
+            "backgroundColor": "#f8d7da",  # light red
+            "border": "1px solid #f5c6cb",
+            "color": "#721c24",
+            "width": "100%"
+        }
+        # Get top_exporters
+        top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
+        exporter_suggestions = html.Ul([
+            html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}")
+            for _, export_details in top_exporters.items()
+        ], className="list-disc ml-5 text-sm mt-2 space-y-1") if top_exporters else None
+        
+        if exporter_suggestions:
+            recommendation_children += [
+                html.H4("🌍 Suggested New Trade Partners (Top Exporters)", style={"fontWeight": "600", "marginTop": "20px"}),
+                html.P("Consider exploring imports from these top global exporters of this good:"),
+                exporter_suggestions
+            ]
+
+    elif scri_score > 0.2:
+        recommendation_children = [
+            html.H4("🟡 Policy Recommendation: Medium Supply Chain Risk", style={"fontWeight": "600"}),
+            html.P("The SCRI score suggests moderate risk. There is room for improvement in supplier diversity or dependency."),
+            html.Ul([
+                html.Li("🌍 Explore and engage with new international suppliers."),
+                html.Li("📈 Monitor geopolitical and economic trends in current supplier countries."),
+                html.Li("📊 Encourage redundancy by balancing supplier concentration."),
+                html.Li("🤝 Consider bilateral trade discussions with emerging exporters.")
+            ], className="list-disc ml-5 mt-2 space-y-1 text-sm")
+        ]
+        panel_style = {
+                "backgroundColor": "#fff3cd",  # light yellow
+                "border": "1px solid #ffeeba",
+                "color": "#856404",
+                "width": "100%"
+            }
+        
+        # Get top_exporters
+        top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
+        exporter_suggestions = html.Ul([
+            html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}")
+            for _, export_details in top_exporters.items()
+        ], className="list-disc ml-5 text-sm mt-2 space-y-1") if top_exporters else None
+
+        if exporter_suggestions:
+            recommendation_children += [
+                html.H4("🌍 Suggested New Trade Partners (Top Exporters)", style={"fontWeight": "600", "marginTop": "20px"}),
+                html.P("Consider exploring imports from these top global exporters of this good:"),
+                exporter_suggestions
+            ]
+
+    else:
+        recommendation_children = [
+            html.H5("✅ Policy Recommendation: Resilient Supply Chain", style={"fontWeight": "600"}),
+            html.P("The SCRI score indicates low risk. The supply chain appears stable and well-diversified."),
+            html.Ul([
+                html.Li("🧭 Continue monitoring supplier performance and global risks."),
+                html.Li("📌 Maintain current diversification strategies."),
+                html.Li("🛡️ Invest in long-term contracts with reliable partners.")
+            ], className="list-disc ml-5 mt-2 space-y-1 text-sm")
+        ]
+        panel_style = {
+            "backgroundColor": "#d4edda",  # light green
+            "border": "1px solid #c3e6cb",
+            "color": "#155724",
+            "width": "100%"
+        }
+
+    # Final recommendation component
+    policy_panel = html.Div(
+        recommendation_children,
+        className="rounded-xl p-4 w-full",
+        style=panel_style
+    )
+
+    return metrics_text, fig, policy_panel
 
 # Callback for update in multi-commodity selection
 @app.callback(
@@ -207,9 +413,10 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     [Input('country-dropdown', 'value'),
      Input('year-dropdown', 'value'),
      Input('multi-commodity-select', 'value'),
-     Input('api-key-store', 'data')]
+     Input('api-key-store', 'data'),
+     Input('sector-dropdown', 'value')]
 )
-def analyze_selected_commodities(country_code, year, hs_codes, api_key):
+def analyze_selected_commodities(country_code, year, hs_codes, api_key, sector):
     if not hs_codes or hs_codes == [] or not country_code or api_key is None:
         raise exceptions.PreventUpdate
 
@@ -219,33 +426,42 @@ def analyze_selected_commodities(country_code, year, hs_codes, api_key):
         exports = get_trade_partners(country_code, "X", hs_code, year, api_key)
         if imports:
             scri = calculate_scri(imports, exports)
-            full_label = next((c['label'] for c in fetch_commodities() if c['value'] == hs_code), f"HS {hs_code}")
+            full_label = next((c['label'] for c in fetch_commodities(sector) if c['value'] == hs_code), f"HS {hs_code}")
             short_label = (full_label[:50] + "...") if len(full_label) > 50 else full_label
             results.append({"short_label": short_label, "full_label": full_label, "scri": scri['SCRI']})
 
     if not results:
-        return html.Div("No SCRI data available for selected commodities."), go.Figure()
+        return html.Div(
+            "No SCRI data available for selected commodities.",
+            style={"textAlign": "center", "color": "gray", "marginTop": "10px"}
+        ), go.Figure()
 
+    # Bar chart
     bar_fig = go.Figure(go.Bar(
         x=[item["scri"] for item in results],
         y=[item["short_label"] for item in results],
         orientation='h',
         marker=dict(color='darkcyan'),
         hovertext=[item["full_label"] for item in results],
-        hoverinfo="text+x"
+        hoverinfo="text+x",
+        text=[f"{item['scri']:.2f}" for item in results],   
+        textposition='auto'
     ))
     bar_fig.update_layout(
-        title="SCRI Scores for Selected Commodities",
         xaxis_title="SCRI Score",
         yaxis_title="Commodity",
         template="plotly_white",
-        height=400
+        height=400,
+        margin=dict(t=40, l=60, r=20, b=40)
     )
 
-    return html.Div([
-        html.H4("🔍 SCRI Scores for Selected Commodities"),
-        html.Ul([html.Li(f"{item['full_label']}: SCRI = {item['scri']:.4f}") for item in results])
-    ]), bar_fig
+    return html.Div(children=[
+            html.H4("🔍 SCRI Scores for Selected Commodities", style={
+                "fontWeight": "600",
+                "fontSize": "18px",
+                "marginTop": "20px"
+            })
+        ]), bar_fig
 
 # Run App
 if __name__ == '__main__':

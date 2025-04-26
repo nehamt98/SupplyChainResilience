@@ -51,15 +51,15 @@ def fetch_countries():
     countries_df = pd.read_csv("data/countries.csv")
     return countries_df.to_dict(orient="records")   
 
-def fetch_commodities():
+def fetch_commodities(sector):
     """
     Loads the list of critical commodities (with HS codes and labels) from preprocessed CSV.
 
     Returns:
         list: List of dictionaries with 'label' and 'value' keys used for Dash dropdowns.
     """
-    # Replace file name with your prepared csv
-    commodities_df = pd.read_csv("data/semiconductors_labels.csv")    
+    commodities_df = pd.read_csv(f"data/{sector}_labels.csv")
+    commodities_df["label"] = commodities_df["label"] + " (" + commodities_df["value"].astype(str) + ")"
     return commodities_df.to_dict(orient="records")
 
 # To store cached data
