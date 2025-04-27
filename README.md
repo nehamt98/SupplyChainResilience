@@ -103,13 +103,13 @@ The app runs locally at: http://127.0.0.1:8055/
 
 ## Policy Recommendations Logic
 Based on the SCRI score:
-- High Risk (SCRI > 0.5):
+- High Risk (SCRI > 0.7):
 	- Strong reliance on few suppliers
 	- Suggests diversifying or reducing import dependency
-- Medium Risk (0.2 < SCRI ≤ 0.5):
+- Medium Risk (0.3 < SCRI ≤ 0.7):
 	- Moderately concentrated supply
 	- Recommend supplier monitoring and bilateral deals
-- Low Risk (SCRI ≤ 0.2):
+- Low Risk (SCRI ≤ 0.3):
 	- Resilient and well-diversified
 	- Continue with current policies and monitor
 
