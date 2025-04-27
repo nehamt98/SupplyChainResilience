@@ -125,7 +125,6 @@ def get_trade_info(country, hs_code, year, api_key):
     import_data_cache[cache_key] = partner_values_import
     export_data_cache[cache_key] = partner_values_export
     exporter_count_cache[cache_key] = len(exporter_count)
-    print(exporter_count)
 
     return partner_values_import, partner_values_export, len(exporter_count)
 

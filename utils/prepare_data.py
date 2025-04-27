@@ -18,7 +18,7 @@ def prepare_hs_codes(dataset):
     Returns:
         list: Sorted list of unique 6-digit HS codes as integers.
     """
-    df = pd.read_csv("data/" + dataset + ".csv")
+    df = pd.read_csv("data/raw/" + dataset + ".csv")
     hs_codes = [int(str(num)[:6]) for num in df["8- or 10-Digit HS Code"]]
     return sorted(set(hs_codes))  # Convert to sorted list to preserve order
 
@@ -33,7 +33,7 @@ def get_labels(hs_codes):
         list: List of commodity descriptions corresponding to each HS code.
     """
     labels = []
-    for code in hs_codes:
+    for i,code in enumerate(hs_codes):
         params = {
             "reporterCode": "",
             "period": 2022,
@@ -44,7 +44,8 @@ def get_labels(hs_codes):
             "includeDesc": True
         }
         data = fetch_comtrade_data(params, api_key)
-        labels.append(data[0].get("cmdDesc"))
+        if data:
+            labels.append(data[0].get("cmdDesc"))
     return labels
 
 def prepare_commodities(dataset):
@@ -62,13 +63,10 @@ def prepare_commodities(dataset):
     hs_codes = prepare_hs_codes(dataset)
     labels = get_labels(hs_codes)
     
-    # Ensure both lists are the same length before combining
-    if len(labels) != len(hs_codes):
-        raise ValueError("Mismatch between labels and HS codes length.")
-
+    min_len = min(len(labels), len(hs_codes))
     commodity_df = pd.DataFrame({
-        "label": labels,
-        "value": hs_codes
+        "label": labels[:min_len],
+        "value": hs_codes[:min_len]
     })
     commodity_df.to_csv("data/" + dataset + "_labels.csv", index=False)
 
@@ -100,7 +98,8 @@ def load_countries():
     countries_df = pd.DataFrame(countries_list)
     countries_df.to_csv("data/countries.csv", index=False)  
 
-# Uncomment the following line to load the commodities. Replace "your_dataset_name" with the name of your csv file.
+# Uncomment the following line to load the commodities. Replace "your_dataset_name" with the name of your csv file. 
+# Note: This may take a while
 # prepare_commodities("your_dataset_name")
 
 # Uncomment the following line to reload the list of countries
