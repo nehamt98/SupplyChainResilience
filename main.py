@@ -317,7 +317,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
 
     # Populate right panel
     scri_score = scri_result['SCRI']
-    if scri_score > 0.5:
+    if scri_score > 0.7:
         recommendation_children = [
             html.H4("⚠️ Policy Recommendation: High Supply Chain Vulnerability", style={"fontWeight": "600"}),
             html.P("The SCRI score indicates a high risk. The country is heavily dependent on a few suppliers and lacks diversification."),
@@ -348,7 +348,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
                 exporter_suggestions
             ]
 
-    elif scri_score > 0.2:
+    elif scri_score > 0.3:
         recommendation_children = [
             html.H4("🟡 Policy Recommendation: Medium Supply Chain Risk", style={"fontWeight": "600"}),
             html.P("The SCRI score suggests moderate risk. There is room for improvement in supplier diversity or dependency."),
