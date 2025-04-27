@@ -1,0 +1,118 @@
+Order,Description,Sector,Subsector,Stage,8- or 10-Digit HS Code
+1164,"Natural graphite, crystalline flake (not including flake dust)",ICT,Semiconductors,Input,25041010
+1165,Natural graphite in powder or flakes (other than crystalline flake),ICT,Semiconductors,Input,25041050
+1166,Natural magnesium carbonate (magnesite),ICT,Semiconductors,Input,25191000
+1167,"Fused magnesia; dead-burned (sintered) magnesia, whether or not cont. small quant. of other oxides added before sintering",ICT,Semiconductors,Input,25199010
+1168,Caustic calcined magnesite,ICT,Semiconductors,Input,25199020
+1169,Kieserite,ICT,Semiconductors,Input,25302010
+1170,Epsom salts (natural magnesium sulfates),ICT,Semiconductors,Input,25302020
+1171,Cobalt ores and concentrates,ICT,Semiconductors,Input,26050000
+1172,Tungsten ores,ICT,Semiconductors,Input,26110030
+1173,Tungsten concentrates,ICT,Semiconductors,Input,26110060
+1174,"Niobium, tantalum or vanadium ores and concentrates, nesoi",ICT,Semiconductors,Input,26159060
+1175,Antimony ores and concentrates,ICT,Semiconductors,Input,26171000
+1176,Fluorine,ICT,Semiconductors,Input,28013010
+1177,Carbon (carbon blacks and other forms of carbon not elsewhere specified or included),ICT,Semiconductors,Input,28030000
+1178,"Rare gases, other than argon",ICT,Semiconductors,Input,28042900
+1179,Boron; tellurium,ICT,Semiconductors,Input,28045000
+1180,Silicon containing by weight not less than 99.99 percent of silicon,ICT,Semiconductors,Input,28046100
+1181,Arsenic,ICT,Semiconductors,Input,28048000
+1182,Hydrogen chloride (Hydrochloric acid),ICT,Semiconductors,Input,28061000
+1183,Sulfuric acid; oleum,ICT,Semiconductors,Input,28070000
+1184,Nitric acid; sulfonitric acids,ICT,Semiconductors,Input,28080000
+1185,Phosphoric acid and polyphosphoric acids,ICT,Semiconductors,Input,28092000
+1186,Arsenic acid,ICT,Semiconductors,Input,28111910
+1187,Arsenic trioxide,ICT,Semiconductors,Input,28112910
+1188,Arsenic sulfides,ICT,Semiconductors,Input,28139010
+1189,Ammonia in aqueous solution,ICT,Semiconductors,Input,28142000
+1190,Hydroxide and peroxide of magnesium,ICT,Semiconductors,Input,28161000
+1191,Cobalt oxides and hydroxides; commercial cobalt oxides,ICT,Semiconductors,Input,28220000
+1192,Antimony oxides,ICT,Semiconductors,Input,28258000
+1193,Tungsten oxides,ICT,Semiconductors,Input,28259030
+1194,"Other inorganic bases; other metal oxides, hydroxides and peroxides, nesoi",ICT,Semiconductors,Input,28259090
+1195,"Other complex fluorine salts, nesoi",ICT,Semiconductors,Input,28269090
+1196,Magnesium chloride,ICT,Semiconductors,Input,28273100
+1197,Cobalt chlorides,ICT,Semiconductors,Input,28273960
+1198,Magnesium sulfate,ICT,Semiconductors,Input,28332100
+1199,Cobalt sulfate,ICT,Semiconductors,Input,28332910
+1200,Cobalt carbonates,ICT,Semiconductors,Input,28369910
+1201,Tungstates (wolframates),ICT,Semiconductors,Input,28418000
+1202,Tungsten carbide,ICT,Semiconductors,Input,28499030
+1203,Propan-1-ol (Propyl alcohol) and Propan-2-ol (isopropyl alcohol),ICT,Semiconductors,Input,29051200
+1204,Acetic acid,ICT,Semiconductors,Input,29152100
+1205,Cobalt acetates,ICT,Semiconductors,Input,29152930
+1206,"Photographic plates and film nesoi, with any side 255 mm, in the flat, sensitized, unexposed, not of paper, paperboard, or textiles",ICT,Semiconductors,Input,37013000
+1207,"Photographic dry plates, nesoi, sensitized, unexposed, of any material other than paper, paperboard or textiles",ICT,Semiconductors,Input,37019930
+1208,"Photographic plates and film, exposed and developed, other than cinematographic film",ICT,Semiconductors,Input,37050000
+1209,"Chemical preparations for photographic uses, nesoi",ICT,Semiconductors,Input,37079032
+1210,"Chemical elements doped for use in electronics, in the form of discs, wafers etc., chemical compounds doped for electronic use",ICT,Semiconductors,Input,38180000
+1128,"Boxes and similar articles for the conveyance or packing of semiconductor wafers, masks or reticules of subheadings 3923.10 or 8485.90",ICT,Semiconductors,Capital,39231020
+1129,Fused quartz reactor tubes and holders designed for insertion into diffusion and oxidation furnaces for semiconductor wafer production,ICT,Semiconductors,Capital,70171030
+1130,"Quartz reactor tubes and holders designed for insertion into diffusion and oxidation furnaces for semiconductor wafer production, nesoi",ICT,Semiconductors,Capital,70200030
+1211,"Platinum, unwrought or in powder form",ICT,Semiconductors,Input,71101100
+1212,"Platinum, in semimanufactured forms",ICT,Semiconductors,Input,71101900
+1213,"Palladium, unwrought or in powder form",ICT,Semiconductors,Input,71102100
+1214,"Palladium, in semimanufactured forms",ICT,Semiconductors,Input,71102900
+1215,"Rhodium, unwrought or in powder form",ICT,Semiconductors,Input,71103100
+1216,"Rhodium, in semimanufactured forms",ICT,Semiconductors,Input,71103900
+1217,"Iridium, osmium and ruthenium, unwrought or in powder form",ICT,Semiconductors,Input,71104100
+1218,"Iridium, osmium and ruthenium, in semimanufactured forms",ICT,Semiconductors,Input,71104900
+1219,"Platinum waste and scrap, incl. metal clad w/ platinum, excluding sweepings containing other precious metals, other than goods of e-waste heading 8549",ICT,Semiconductors,Input,71129201
+1220,Ferrotungsten and ferrosilicon tungsten,ICT,Semiconductors,Input,72028000
+1221,"Tin (o/than alloy), unwrought",ICT,Semiconductors,Input,80011000
+1222,"Tin alloy, unwrought",ICT,Semiconductors,Input,80012000
+1223,"Tin, waste and scrap",ICT,Semiconductors,Input,80020000
+1224,"Tungsten, powders",ICT,Semiconductors,Input,81011000
+1225,Tungsten waste and scrap,ICT,Semiconductors,Input,81019700
+1226,"Magnesium, unwrought, containing at least 99.8 percent by weight of magnesium",ICT,Semiconductors,Input,81041100
+1227,"Magnesium, unwrought, nesoi",ICT,Semiconductors,Input,81041900
+1228,"Magnesium, waste and scrap",ICT,Semiconductors,Input,81042000
+1229,"Magnesium, raspings, turnings and granules graded according to size; magnesium powders",ICT,Semiconductors,Input,81043000
+1230,"Magnesium, articles nesoi",ICT,Semiconductors,Input,81049000
+1231,"Cobalt alloys, unwrought",ICT,Semiconductors,Input,81052030
+1232,"Cobalt (other than alloys), unwrought",ICT,Semiconductors,Input,81052060
+1233,"Cobalt, mattes and other intermediate products of cobalt metallurgy; cobalt powders",ICT,Semiconductors,Input,81052090
+1234,Cobalt waste and scrap,ICT,Semiconductors,Input,81053000
+1235,"Cobalt, articles thereof nesoi",ICT,Semiconductors,Input,81059000
+1236,"Antimony, unwrought; antimony powders",ICT,Semiconductors,Input,81101000
+1237,Antimony waste and scrap,ICT,Semiconductors,Input,81102000
+1238,"Articles of antimony, nesoi",ICT,Semiconductors,Input,81109000
+1239,"Gallium, unwrought; gallium powders",ICT,Semiconductors,Input,81129210
+1240,"Indium, unwrought; indium powders",ICT,Semiconductors,Input,81129230
+1131,Gas-tight biological safety cabinets,ICT,Semiconductors,Capital good,84147000
+1132,"Parts of air or vacuum pumps, ventilating or recycling hoods, gas-tight biological safety cabinets",ICT,Semiconductors,Capital good,84149091
+1133,"Heat exchange units, nesoi",ICT,Semiconductors,Capital good,84195050
+1134,"Filtering or purifying machinery and apparatus for liquids, nesoi",ICT,Semiconductors,Capital good,84212900
+1135,"Filtering or purifying machinery and apparatus for gases, other than intake air filters or catalytic conv. for internal combustion engines",ICT,Semiconductors,Capital good,84213901
+1136,Parts for filtering or purifying machinery or apparatus for liquids or gases,ICT,Semiconductors,Capital good,84219901
+1137,Machines and apparatus for the manufacture of boules or wafers,ICT,Semiconductors,Capital good,84861000
+1138,Machines and apparatus for the manufacture of semiconductor devices or electronic integrated circuits,ICT,Semiconductors,Capital good,84862000
+1139,Machines and apparatus for the manufacture of masks and reticles and for the assembly of electronic integrated circuits,ICT,Semiconductors,Capital good,84864000
+1140,"Parts and accessories of the machines and apparatus for the manufacture of semiconductor devices, electronic integrated circuits and flat pa",ICT,Semiconductors,Capital good,84869000
+1146,"Semiconductor media, smart cards",ICT,Semiconductors,Final,85235200
+1147,"Diodes, other than photosensitive or light-emitting diodes",ICT,Semiconductors,Final,85411000
+1148,"Transistors, other than photosensitive transistors, with a dissipation rating of less than 1 W",ICT,Semiconductors,Final,85412100
+1149,"Transistors, other than photosensitive transistors, with a dissipation rating of 1 W or more",ICT,Semiconductors,Final,85412900
+1150,"Thyristors, diacs and triacs, other than photosensitive devices",ICT,Semiconductors,Final,85413000
+1151,Light-emitting diodes,ICT,Semiconductors,Final,85414100
+1152,"Photovoltaic cells, not assembled in modules or made up into panels",ICT,Semiconductors,Final,85414200
+1153,Photovoltaic cells assembled in modules or made up into panels,ICT,Semiconductors,Final,85414300
+1154,"Other photosensitive semiconductor diodes, other than light-emitting",ICT,Semiconductors,Final,85414910
+1155,Other photosensitive semiconductor transistors,ICT,Semiconductors,Final,85414970
+1156,Optical coupled isolators,ICT,Semiconductors,Final,85414980
+1157,"Other photosensitive semiconductor devices, other than diodes or transistors, nesoi",ICT,Semiconductors,Final,85414995
+1158,"Other semiconductor-based transducers, other than photosensitive transducers",ICT,Semiconductors,Final,85415100
+1159,"Other semiconductor devices, other than semiconductor-based transducers, other than photosensitive devices, nesoi",ICT,Semiconductors,Final,85415900
+1241,"Parts of diodes, transistors, similar semiconductor devices, photosensitive semiconductor devices, LED's and mounted piezoelectric crystals",ICT,Semiconductors,Input,85419000
+1160,Electronic integrated circuits: processors and controllers,ICT,Semiconductors,Final,85423100
+1161,Electronic integrated circuits: memories,ICT,Semiconductors,Final,85423200
+1162,Electronic intergrated circuits: amplifiers,ICT,Semiconductors,Final,85423300
+1163,Electronic integrated circuits: other,ICT,Semiconductors,Final,85423900
+1242,Parts of electronic integrated circuits and microassemblies,ICT,Semiconductors,Input,85429000
+1141,"Instruments and apparatus for measuring or checking electrical quantities, nesoi: for measuring or checking semiconductor wafers or devices",ICT,Semiconductors,Capital good,90308200
+1243,Printed circuit assemblies for subheadings and apparatus of 9030.40 & 9030.82,ICT,Semiconductors,Input,90309066
+1244,"Printed circuit assemblies, NESOI",ICT,Semiconductors,Input,90309068
+1142,"Parts and accessories for instruments and apparatus for measuring or checking semiconductor wafers or devices, nesoi",ICT,Semiconductors,Capital good,90309084
+1143,Optical measuring/checking instruments/appliances for inspecting semiconductor wafers/devices or photomasks/reticle used to mfg such devices,ICT,Semiconductors,Capital good,90314100
+1144,Optical instrument & appliance: to inspect masks (not photomask) used to mfg semiconductor devices; to measure contamination on such devices,ICT,Semiconductors,Capital good,90314970
+1145,Electron beam microscopes fitted with equipment specifically designed for the handling and transport of semiconductor devices or reticles,ICT,Semiconductors,Capital good,90318040

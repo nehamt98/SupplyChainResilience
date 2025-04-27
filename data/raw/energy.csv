@@ -1,0 +1,645 @@
+Order,8- or 10-Digit HS Code,First brief_description,First Sector,First Subsector,First Stage
+272,25221000,Quicklime (other than calcium oxide and hydroxide of heading 2825),Energy,Carbon Capture,Input
+273,25232100,"Portland cement (white cement), whether or not artificially colored",Energy,Carbon Capture,Input
+274,25232900,"Portland cement (other than white cement), whether or not colored",Energy,Carbon Capture,Input
+275,27090010,"Petroleum oils and oils from bituminous minerals, crude, testing under 25 degrees A.P.I.",Energy,Carbon Capture,Input
+276,27090020,"Petroleum oils and oils from bituminous minerals, crude, testing 25 degrees A.P.I. or more",Energy,Carbon Capture,Input
+277,28041000,Hydrogen,Energy,Carbon Capture,Input
+278,28043000,Nitrogen,Energy,Carbon Capture,Input
+279,28141000,Anhydrous ammonia,Energy,Carbon Capture,Input
+280,28142000,Ammonia in aqueous solution,Energy,Carbon Capture,Input
+281,29012100,Ethylene,Energy,Carbon Capture,Input
+282,29012200,Propene (Propylene),Energy,Carbon Capture,Input
+283,29091930,Triethylene glycol dichloride,Energy,Carbon Capture,Input
+284,29101000,Oxirane (Ethylene oxide),Energy,Carbon Capture,Input
+285,29221100,Monoethanolamine and its salts,Energy,Carbon Capture,Input
+286,29221200,Diethanolamine and its salts,Energy,Carbon Capture,Input
+287,84137020,"Centrifugal pumps for liquids, not fitted with a measuring device, nesoi",Energy,Carbon Capture,Input
+288,84148020,"Gas compressors, nesoi",Energy,Carbon Capture,Input
+289,84148090,"Air or gas pumps, compressors and fans, nesoi",Energy,Carbon Capture,Input
+290,84149030,Stators and rotors of goods of subheading 8414.30,Energy,Carbon Capture,Input
+291,84149041,"Parts of air or gas compressors, nesoi",Energy,Carbon Capture,Input
+292,25070000,"Kaolin and other kaolinic clays, whether or not calcined",Energy,Electric Grid,Input
+293,25251000,"Mica, crude or rifted into sheets or splittings",Energy,Electric Grid,Input
+294,25252000,"Mica, powder",Energy,Electric Grid,Input
+295,25261000,"Steatite, natural n/crushed or powdered, whether or not roughly trimmed or cut into rect. blocks or slabs; talc n/crushed or powdered",Energy,Electric Grid,Input
+296,25262000,"Steatite, natural; talc; the foregoing crushed or powdered",Energy,Electric Grid,Input
+297,25291000,Feldspar,Energy,Electric Grid,Input
+298,25292100,"Fluorspar, containing by weight 97 percent or less of calcium fluoride",Energy,Electric Grid,Input
+299,25292200,"Fluorspar, containing by weight more than 97 percent of calcium fluoride",Energy,Electric Grid,Input
+300,25309010,Natural cryolite; natural chiolite,Energy,Electric Grid,Input
+301,26011100,"Iron ores and concentrates (other than roasted iron pyrites), not agglomerated",Energy,Electric Grid,Input
+302,26011200,"Iron ores and concentrates (other than roasted iron pyrites), agglomerated",Energy,Electric Grid,Input
+303,26030000,Copper ores and concentrates,Energy,Electric Grid,Input
+304,26040000,Nickel ores and concentrates,Energy,Electric Grid,Input
+305,26060000,Aluminum ores and concentrates,Energy,Electric Grid,Input
+306,26100000,Chromium ores and concentrates,Energy,Electric Grid,Input
+307,26110030,Tungsten ores,Energy,Electric Grid,Input
+308,26110060,Tungsten concentrates,Energy,Electric Grid,Input
+309,27090010,"Petroleum oils and oils from bituminous minerals, crude, testing under 25 degrees A.P.I.",Energy,Electric Grid,Input
+310,27090020,"Petroleum oils and oils from bituminous minerals, crude, testing 25 degrees A.P.I. or more",Energy,Electric Grid,Input
+311,27101945,"Mixture of hydrocarbons from petro oils & bitum. min. or preps.70%+ by wt. fr. petro. oils, nesoi, n/o 50% any single hydrocarbon",Energy,Electric Grid,Input
+312,39046100,"Polytetrafluoroethylene (PTFE), in primary forms",Energy,Electric Grid,Input
+313,39073000,Epoxide resins in primary forms,Energy,Electric Grid,Input
+314,44011100,"Coniferous fuel wood, in logs, in billets, in twigs, in faggots or similar forms",Energy,Electric Grid,Input
+315,44011200,"Nonconiferous fuel wood, in logs, in billets, in twigs, in faggots or similar forms",Energy,Electric Grid,Input
+316,44012100,Coniferous wood in chips or particles,Energy,Electric Grid,Input
+317,44012200,Nonconiferous wood in chips or particles,Energy,Electric Grid,Input
+318,44013100,"Sawdust and wood waste and scrap,  pellets",Energy,Electric Grid,Input
+319,44013200,Wood briquettes,Energy,Electric Grid,Input
+320,44013942,"Sawdust and wood waste and scrap, agglomerated, excluding wood pellets, wood briquettes and artificial fire logs",Energy,Electric Grid,Input
+321,44014100,"Sawdust, not agglomerated",Energy,Electric Grid,Input
+322,44014900,"Other wood waste and scrap, not agglomerated, other than sawdust",Energy,Electric Grid,Input
+323,72155000,"Iron/nonalloy steel nesoi, bars and rods, not further wkd. than cold-formed or cold-finished, not in coils",Energy,Electric Grid,Input
+324,72230010,"Stainless steel, round wire",Energy,Electric Grid,Input
+325,72230050,"Stainless steel, flat wire",Energy,Electric Grid,Input
+326,72230090,"Stainless steel, wire (other than round or flat wire)",Energy,Electric Grid,Input
+327,72261110,"Alloy silicon electrical steel (grain-oriented), width 300mm+ but less th/600mm, flat-rolled products",Energy,Electric Grid,Input
+328,72261190,"Alloy silicon electrical steel (grain-oriented), width less th/300mm, flat-rolled products",Energy,Electric Grid,Input
+329,74071015,"Refined copper, hollow profiles",Energy,Electric Grid,Input
+330,74071030,"Refined copper, profiles (o/than hollow profiles)",Energy,Electric Grid,Input
+331,74071050,"Refined copper, bars and rods",Energy,Electric Grid,Input
+332,74072115,"Copper-zinc base alloys (brass), hollow profiles",Energy,Electric Grid,Input
+333,74072130,"Copper-zinc base alloys (brass), profiles (o/than hollow profiles)",Energy,Electric Grid,Input
+334,74072150,"Copper-zinc base alloys (brass), low fuming brazing rods",Energy,Electric Grid,Input
+335,74072170,"Copper-zinc base alloys (brass), bars & rods nesoi, having a rectangular cross section",Energy,Electric Grid,Input
+336,74072190,"Copper-zinc base alloys (brass), bars & rods nesoi, not having a rectangular cross section",Energy,Electric Grid,Input
+337,74081130,"Refined copper, wire, w/maximum cross-sectional dimension over 9.5 mm",Energy,Electric Grid,Input
+338,74081160,"Refined copper, wire, w/maximum cross-sectional dimension over 6 mm but not over 9.5 mm",Energy,Electric Grid,Input
+339,74081900,"Refined copper, wire, w/maximum cross-sectional dimension of 6 mm or less",Energy,Electric Grid,Input
+340,74082100,"Copper-zinc base alloys (brass), wire",Energy,Electric Grid,Input
+341,74082210,"Copper-nickel base alloys (cupro-nickel) or copper-nickel-zinc base alloys (nickel silver), wire, coated or plated with metal",Energy,Electric Grid,Input
+342,74082250,"Copper-nickel base alloys (cupro-nickel) or copper-nickel-zinc base alloys (nickel silver), wire, not coated or plated w/metal",Energy,Electric Grid,Input
+343,74082910,"Copper alloys (o/than brass, cupro-nickel or nickel-silver), wire, coated or plated with metal",Energy,Electric Grid,Input
+344,74082950,"Copper alloys (o/than brass, cupro-nickel or nickel-silver), wire, not coated or plated with metal",Energy,Electric Grid,Input
+345,74091110,"Refined copper, plates, sheets and strip, in coils, with a thickness of 5 mm or more",Energy,Electric Grid,Input
+346,74091150,"Refined copper, plates, sheets and strip, in coils, with a thickness over 0.15mm but less than 5 mm",Energy,Electric Grid,Input
+347,74111010,"Refined copper, tubes and pipes, seamless",Energy,Electric Grid,Input
+348,74111050,"Refined copper, tubes and pipes, other than seamless",Energy,Electric Grid,Input
+349,76149020,"Aluminum, elect. conductors of stranded wire, cables & the like (o/than w/steel core), n/elect. insulated, n/fitted w/fittings or articles",Energy,Electric Grid,Input
+350,81123900,"Hafnium, articles, nesoi",Energy,Electric Grid,Input
+351,81124900,"Rhenium, articles, nesoi",Energy,Electric Grid,Input
+352,81129260,"Germanium, unwrought",Energy,Electric Grid,Input
+353,81129265,"Germanium powder, wrought",Energy,Electric Grid,Input
+354,81129910,Germanium nesoi and articles thereof,Energy,Electric Grid,Input
+355,81129991,"Articles of gallium, indium, or niobium, nesoi",Energy,Electric Grid,Input
+356,85042300,"Liquid dielectric transformers having a power handling capacity exceeding 10,000 kVA",Energy,Electric Grid,Input
+357,85049096,"Parts (other than printed circuit assemblies) of electrical transformers, static converters and inductors",Energy,Electric Grid,Input
+358,85321000,Fixed electrical capacitors designed for use in 50/60 Hz circuits and having a reactive power handling capacity of not less than 0.5 kvar,Energy,Electric Grid,Input
+359,85351000,"Fuses, for a voltage exceeding 1,000 V",Energy,Electric Grid,Input
+360,85352100,"Automatic circuit breakers, for a voltage of less than 72.5 kV, but exceeding 1,000 V",Energy,Electric Grid,Input
+361,85352900,"Automatic circuit breakers, for a voltage of 72.5 kV or more",Energy,Electric Grid,Input
+362,85353000,"Isolating switches and make-and-break switches, for a voltage exceeding 1,000 V",Energy,Electric Grid,Input
+363,85354000,"Lightning arrestors, voltage limiters and surge suppressors, for a voltage exceeding 1,000 V",Energy,Electric Grid,Input
+364,85359080,"Electrical apparatus nesoi for switching, protecting, or making connections for electrical circuits, for a voltage exceeding 1,000 V, nesoi",Energy,Electric Grid,Input
+365,85372000,"Boards, panels, consoles, desks, cabinets and other bases, equipped with apparatus for electric control, for a voltage exceeding 1,000 V",Energy,Electric Grid,Input
+366,85446020,"Insulated electric conductors nesoi, for a voltage exceeding 1,000 V, fitted with connectors",Energy,Electric Grid,Input
+367,85446040,"Insulated electric conductors nesoi, of copper, for a voltage exceeding 1,000 V, not fitted with connectors",Energy,Electric Grid,Input
+368,85446060,"Insulated electric conductors nesoi, not of copper, for a voltage exceeding 1,000 V, not fitted with connectors",Energy,Electric Grid,Input
+369,90283000,"Electricity supply or production meters, including calibrating meters thereof",Energy,Electric Grid,Input
+370,90289000,"Parts and accessories for gas, liquid or electricity supply or production meters",Energy,Electric Grid,Input
+371,84147000,Gas-tight biological safety cabinets,Energy,Fuel Cells,Capital good
+372,84149091,"Parts of air or vacuum pumps, ventilating or recycling hoods, gas-tight biological safety cabinets",Energy,Fuel Cells,Capital good
+373,84195050,"Heat exchange units, nesoi",Energy,Fuel Cells,Capital good
+374,84199030,Parts of heat exchange units,Energy,Fuel Cells,Capital good
+375,84199095,"Parts of machinery, plant or laboratory equipment for the treatment of materials by a process involving a change of temperature, nesoi",Energy,Fuel Cells,Capital good
+376,84212100,Machinery and apparatus for filtering or purifying water,Energy,Fuel Cells,Capital good
+377,84212900,"Filtering or purifying machinery and apparatus for liquids, nesoi",Energy,Fuel Cells,Capital good
+378,84213901,"Filtering or purifying machinery and apparatus for gases, other than intake air filters or catalytic conv. for internal combustion engines",Energy,Fuel Cells,Capital good
+379,84219901,Parts for filtering or purifying machinery or apparatus for liquids or gases,Energy,Fuel Cells,Capital good
+380,84779065,"Hydraulic assemblies of machinery for working rubber or plastics or for the manufacture of products from these materials, nesoi",Energy,Fuel Cells,Capital good
+381,84811000,"Pressure-reducing valves for pipes, boiler shells, tanks, vats or the like",Energy,Fuel Cells,Capital good
+382,84812000,Valves for oleohydraulic or pneumatic transmissions,Energy,Fuel Cells,Capital good
+383,84813010,"Check valves of copper for pipes, boiler shells, tanks, vats or the like",Energy,Fuel Cells,Capital good
+384,84813020,"Check valves of iron or steel for pipes, boiler shells, tanks, vats or the like",Energy,Fuel Cells,Capital good
+385,84813090,"Check valves other than of copper or iron or steel, for pipes, boiler shells, tanks, vats or the like",Energy,Fuel Cells,Capital good
+386,84814000,"Safety or relief valves for pipes, boiler shells, tanks, vats or the like",Energy,Fuel Cells,Capital good
+387,84818010,"Taps, cocks, valves & similar appliances for pipes, boiler shells, tanks, vats or the like, hand operated, of copper, nesoi",Energy,Fuel Cells,Capital good
+388,84818030,"Taps, cocks, valves & similar appliances for pipes, boiler shells, tanks, vats or the like, hand operated, of iron or steel, nesoi",Energy,Fuel Cells,Capital good
+389,84818090,"Taps, cocks, valves & similar appliances for pipes, boiler shells, tanks, vats or the like, other than hand operated, nesoi",Energy,Fuel Cells,Capital good
+390,84819090,"Parts of taps, cocks, valves and similar appliances for pipes, boiler shells, tanks, vats or the like, nesoi",Energy,Fuel Cells,Capital good
+391,90283000,"Electricity supply or production meters, including calibrating meters thereof",Energy,Fuel Cells,Capital good
+392,25041010,"Natural graphite, crystalline flake (not including flake dust)",Energy,Fuel Cells,Input
+393,25041050,Natural graphite in powder or flakes (other than crystalline flake),Energy,Fuel Cells,Input
+394,25049000,"Natural graphite, other than in powder or in flakes",Energy,Fuel Cells,Input
+395,26040000,Nickel ores and concentrates,Energy,Fuel Cells,Input
+396,26100000,Chromium ores and concentrates,Energy,Fuel Cells,Input
+397,26140060,"Titanium ores and concentrates, other than synthetic rutile",Energy,Fuel Cells,Input
+398,26209950,Slag (other than from the manufacture of iron or steel) contains over 40% titanium & if has over 2% Cu/Pb/Zn is not for recovery thereof,Energy,Fuel Cells,Input
+399,28191000,Chromium trioxide,Energy,Fuel Cells,Input
+400,28199000,"Chromium oxides and hydroxides, other than chromium trioxide",Energy,Fuel Cells,Input
+401,28230000,Titanium oxides,Energy,Fuel Cells,Input
+402,28413000,Sodium dichromate,Energy,Fuel Cells,Input
+403,28415010,Potassium dichromate,Energy,Fuel Cells,Input
+404,28415091,Chromates except of zinc or lead and dichromates except of sodium or potassium; peroxochromates,Energy,Fuel Cells,Input
+405,28499020,Chromium carbide,Energy,Fuel Cells,Input
+406,32061100,Pigments & preparations based on titanium dioxide containing 80 percent or more by weight off titanium dioxide calculated on the dry weight,Energy,Fuel Cells,Input
+407,32061900,"Pigments and preparations based on titanium dioxide, nesoi",Energy,Fuel Cells,Input
+408,32074010,"Glass frit and other glass, ground or pulverized",Energy,Fuel Cells,Input
+409,32074050,"Glass frit and other glass, in the form of granules or flakes",Energy,Fuel Cells,Input
+410,32141000,"Glaziers' putty, grafting putty, resin cements, caulking compounds and other mastics; painters' fillings",Energy,Fuel Cells,Input
+411,38249931,Mixtures of bismuth,Energy,Fuel Cells,Input
+412,38249933,Mixtures of mercury,Energy,Fuel Cells,Input
+413,38249934,Mixtures of molybdenum,Energy,Fuel Cells,Input
+414,38249935,Mixtures of tungsten,Energy,Fuel Cells,Input
+415,38249936,Mixture of vanadium,Energy,Fuel Cells,Input
+416,39269045,"Gaskets, washers and other seals, of plastics",Energy,Fuel Cells,Input
+417,69091950,"Ceramic wares for laboratory, chemical or other technical uses (o/than of porcelain or china), nesoi",Energy,Fuel Cells,Input
+418,70198010,Insulation products of glass wool,Energy,Fuel Cells,Input
+419,71101100,"Platinum, unwrought or in powder form",Energy,Fuel Cells,Input
+420,71101900,"Platinum, in semimanufactured forms",Energy,Fuel Cells,Input
+421,71104100,"Iridium, osmium and ruthenium, unwrought or in powder form",Energy,Fuel Cells,Input
+422,71104900,"Iridium, osmium and ruthenium, in semimanufactured forms",Energy,Fuel Cells,Input
+423,71151000,Platinum catalysts in the form of wire cloth or grill,Energy,Fuel Cells,Input
+424,72024100,Ferrochromium containing by weight more than 4 percent of carbon,Energy,Fuel Cells,Input
+425,72024910,Ferrochromium containing by weight more than 3 percent but not more than 4 percent of carbon,Energy,Fuel Cells,Input
+426,72024950,Ferrochromium containing by weight 3 percent or less of carbon,Energy,Fuel Cells,Input
+427,72025000,Ferrosilicon chromium,Energy,Fuel Cells,Input
+428,72026000,Ferronickel,Energy,Fuel Cells,Input
+429,72029100,Ferrotitanium and ferrosilicon titanium,Energy,Fuel Cells,Input
+430,72171010,"Iron/nonalloy steel, flat wire, <0.25% carbon, not plated or coated, w/thick n/o 0.25 mm",Energy,Fuel Cells,Input
+431,72171020,"Iron/nonalloy steel, flat wire, <0.25% carbon, not plated or coated, w/thick o/0.25mm but n/o 1.25 mm",Energy,Fuel Cells,Input
+432,72171030,"Iron/nonalloy steel, flat wire, <0.25% carbon, not plated or coated, w/thick o/1.25 mm",Energy,Fuel Cells,Input
+433,72171040,"Iron/nonalloy steel, round wire, <0.25% carbon, not plated or coated, w/diameter less than 1.5 mm",Energy,Fuel Cells,Input
+434,72171050,"Iron/nonalloy steel, round wire, <0.25% carbon, not plated or coated, w/diameter of 1.5 mm or more",Energy,Fuel Cells,Input
+435,72171060,"Iron/nonalloy steel, wire (other than flat or round), <0.25% carbon, not plated or coated",Energy,Fuel Cells,Input
+436,72171070,"Iron/nonalloy steel, flat wire, w/0.25% or more carbon, not plated or coated",Energy,Fuel Cells,Input
+437,72171080,"Iron/nonalloy steel, round wire, w/0.25% or more carbon, not plated or coated",Energy,Fuel Cells,Input
+438,72171090,"Iron/nonalloy steel, wire (other than flat or round), w/0.25% or more of carbon, not plated or coated",Energy,Fuel Cells,Input
+439,72172015,"Iron/nonalloy steel, flat wire, plated or coated with zinc",Energy,Fuel Cells,Input
+440,72172030,"Iron/nonalloy steel, round wire, <0.25% carbon, plated or coated with zinc, w/diameter of 1.5 mm or more",Energy,Fuel Cells,Input
+441,72172045,"Iron/nonalloy steel, round wire, w/0.25% or more carbon and/or <1.5mm diam, plated or coated with zinc",Energy,Fuel Cells,Input
+442,72172060,"Iron/nonalloy steel, wire (other than flat or round), <0.25% carbon, plated or coated with zinc",Energy,Fuel Cells,Input
+443,72172075,"Iron/nonalloy steel, wire (other than flat or round), w/0.25% or more of carbon, plated or coated with zinc",Energy,Fuel Cells,Input
+444,73043160,"Iron (o/than cast) or nonalloy steel, seamless, cold-drawn or cold-rolled, tubes, pipes & hollow profiles, w/circular cross section, nesoi",Energy,Fuel Cells,Input
+445,73044130,"Stainless steel, seamless, cold-drawn/cold-rolled, tubes, pipes and hollow profiles, w/circular cross section & extern. diam less than 19mm",Energy,Fuel Cells,Input
+446,73044160,"Stainless steel, seamless, cold-drawn/cold-rolled, tubes, pipes and hollow profiles, w/circular cross section & extern. diam of 19mm or more",Energy,Fuel Cells,Input
+447,73045110,"Alloy steel (o/than stainless), seamless, cold-drawn/cold-rolled, tubes, pipes, etc., w/circ. cross sect., for mfr of ball/roller bearings",Energy,Fuel Cells,Input
+448,73045150,"Alloy steel (o/than stainless), seamless, cold-drawn/cold-rolled, tubes, pipes and hollow profiles, w/circular cross section, nesoi",Energy,Fuel Cells,Input
+449,73064010,"Stainless steel, welded, w/circ. x-sect & ext. diam. 406.4mm or less, tubes, pipes, hollow profiles, w/wall thick. less than 1.65 mm",Energy,Fuel Cells,Input
+450,73064050,"Stainless steel, welded, w/circ. x-sect & ext. diam. 406.4mm or less, tubes, pipes, hollow profiles, w/wall thick. of 1.65 mm or more",Energy,Fuel Cells,Input
+451,73071930,"Cast ductile iron or steel, fittings for tubes or pipes",Energy,Fuel Cells,Input
+452,73071990,"Cast iron or steel, fittings for tubes or pipes, nesoi",Energy,Fuel Cells,Input
+453,73072210,"Stainless steel, not cast, threaded sleeves (couplings) for tubes/pipes",Energy,Fuel Cells,Input
+454,73072250,"Stainless steel, not cast, threaded elbow and bends for tubes/pipes",Energy,Fuel Cells,Input
+455,73072900,"Stainless steel, not cast, fittings for tubes/pipes, nesoi",Energy,Fuel Cells,Input
+456,73079230,"Iron or steel (o/than stainless), not cast, threaded sleeves (couplings) for tubes/pipes",Energy,Fuel Cells,Input
+457,73079290,"Iron or steel (o/than stainless), not cast, threaded elbow and bends for tubes/pipes",Energy,Fuel Cells,Input
+458,73079910,"Iron or nonalloy steel, fittings for tubes/pipes, nesoi, forged, not machined, not tooled and not otherwise processed after forging",Energy,Fuel Cells,Input
+459,73079930,"Alloy steel (o/than stainless), fittings for tubes/pipes, nesoi, forged, not machined/tooled and not otherwise processed after forging",Energy,Fuel Cells,Input
+460,73079950,"Iron/steel (o/than stainless), n/cast, fittings for tubes/pipes, nesoi, not forged or forged and machined, tooled & processed after forging",Energy,Fuel Cells,Input
+461,74071015,"Refined copper, hollow profiles",Energy,Fuel Cells,Input
+462,74071030,"Refined copper, profiles (o/than hollow profiles)",Energy,Fuel Cells,Input
+463,74071050,"Refined copper, bars and rods",Energy,Fuel Cells,Input
+464,74091910,"Refined copper, plates, sheets and strip, not in coils, with a thickness of 5 mm or more",Energy,Fuel Cells,Input
+465,74091950,"Refined copper, plates, sheets and strip, not in coils, with a thickness o/0.15mm but less than 5 mm & a width of 500 mm or more",Energy,Fuel Cells,Input
+466,74091990,"Refined copper, plates, sheets and strip, not in coils, with a thickness o/0.15mm but less than 5 mm & a width of less than 500 mm",Energy,Fuel Cells,Input
+467,74101100,"Refined copper, foil, w/thickness of 0.15 mm or less, not backed",Energy,Fuel Cells,Input
+468,74122000,"Copper alloys, fittings for tubes and pipes",Energy,Fuel Cells,Input
+469,75021000,"Nickel (o/than alloy), unwrought",Energy,Fuel Cells,Input
+470,75030000,"Nickel, waste and scrap",Energy,Fuel Cells,Input
+471,75040000,"Nickel, powders and flakes",Energy,Fuel Cells,Input
+472,76081000,"Aluminum (o/than alloy), tubes and pipes",Energy,Fuel Cells,Input
+473,76090000,"Aluminum, fittings for tubes and pipes",Energy,Fuel Cells,Input
+474,76161070,"Aluminum, screws, bolts, nuts, screw hooks, washers and similar articles w/shanks, threads, or holes o/6 mm in diameter",Energy,Fuel Cells,Input
+475,76161090,"Aluminum, screws, bolts, nuts, screw hooks, washers and similar articles w/shanks, threads or holes 6 mm  or less in diameter",Energy,Fuel Cells,Input
+476,76169951,"Aluminum, articles, nesoi",Energy,Fuel Cells,Input
+477,79011100,"Zinc (o/than alloy), unwrought, containing o/99.99% by weight of zinc",Energy,Fuel Cells,Input
+478,79011210,"Zinc (o/than alloy), unwrought, casting-grade zinc, containing at least 97.5% but less than 99.99% by weight of zinc",Energy,Fuel Cells,Input
+479,79011250,"Zinc (o/than alloy), unwrought, o/than casting-grade zinc, containing at least 97.5% but less than 99.99% by wt. of zinc",Energy,Fuel Cells,Input
+480,79012000,"Zinc alloy, unwrought",Energy,Fuel Cells,Input
+481,81082000,"Titanium, unwrought; titanium powders",Energy,Fuel Cells,Input
+482,81083000,Titanium waste and scrap,Energy,Fuel Cells,Input
+483,81122100,"Chromium, unwrought; chromium powders",Energy,Fuel Cells,Input
+484,81122200,Chromium waste and scrap,Energy,Fuel Cells,Input
+485,81122900,"Articles of chromium, nesoi",Energy,Fuel Cells,Input
+486,83071030,"Iron or steel flexible tubing, with fittings",Energy,Fuel Cells,Input
+487,83071060,"Iron or steel flexible tubing, without fittings",Energy,Fuel Cells,Input
+488,84135000,"Reciprocating positive displacement pumps for liquids, not fitted with a measuring device, nesoi",Energy,Fuel Cells,Input
+489,84136000,"Rotary positive displacement pumps for liquids, not fitted with a measuring device, nesoi",Energy,Fuel Cells,Input
+490,84148005,Turbocharger and supercharger air compressors,Energy,Fuel Cells,Input
+491,84148016,"Air compressors, nesoi",Energy,Fuel Cells,Input
+492,84148020,"Gas compressors, nesoi",Energy,Fuel Cells,Input
+493,84149030,Stators and rotors of goods of subheading 8414.30,Energy,Fuel Cells,Input
+494,84149041,"Parts of air or gas compressors, nesoi",Energy,Fuel Cells,Input
+495,84159080,"Parts for air conditioning machines, nesoi",Energy,Fuel Cells,Input
+496,84842000,Mechanical seals,Energy,Fuel Cells,Input
+497,85023900,"Electric generating sets, nesoi",Energy,Fuel Cells,Input
+498,85044040,Electrical speed drive controllers for electric motors (static converters),Energy,Fuel Cells,Input
+499,85044060,Power supplies suitable for physical incorporation into automatic data processing machines or units thereof of heading 8471,Energy,Fuel Cells,Input
+500,85044070,"Power supplies for automatic data processing machines or units thereof of heading 8471, nesoi",Energy,Fuel Cells,Input
+501,85044085,"Static converters (for example, rectifiers) for telecommunication apparatus",Energy,Fuel Cells,Input
+502,85044095,"Static converters (for example, rectifiers), nesoi",Energy,Fuel Cells,Input
+503,85340000,"Printed circuits, without elements (other than connecting elements) fitted thereon",Energy,Fuel Cells,Input
+504,85351000,"Fuses, for a voltage exceeding 1,000 V",Energy,Fuel Cells,Input
+505,85353000,"Isolating switches and make-and-break switches, for a voltage exceeding 1,000 V",Energy,Fuel Cells,Input
+506,85354000,"Lightning arrestors, voltage limiters and surge suppressors, for a voltage exceeding 1,000 V",Energy,Fuel Cells,Input
+507,85359040,"Electrical motor starters and electrical motor overload protector, for a voltage exceeding 1,000 V",Energy,Fuel Cells,Input
+508,85359080,"Electrical apparatus nesoi for switching, protecting, or making connections for electrical circuits, for a voltage exceeding 1,000 V, nesoi",Energy,Fuel Cells,Input
+509,85361000,"Fuses, for a voltage not exceeding 1,000 V",Energy,Fuel Cells,Input
+510,85371091,"Other boards, panels, consoles, desks, cabinets, etc., equipped with apparatus for electric control, for a voltage not exceeding 1,000, nesoi",Energy,Fuel Cells,Input
+511,85372000,"Boards, panels, consoles, desks, cabinets and other bases, equipped with apparatus for electric control, for a voltage exceeding 1,000 V",Energy,Fuel Cells,Input
+512,85437020,"Physical vapor deposition apparatus, nesoi",Energy,Fuel Cells,Input
+513,85439012,Parts of physical vapor deposition apparatus of subheading 8543.70,Energy,Fuel Cells,Input
+514,85444290,"Insulated electric conductors nesoi, for a voltage not exceeding 1,000 V, fitted with connectors, nesoi",Energy,Fuel Cells,Input
+515,85444910,"Insulated electric conductors of a kind used for telecommunications, for a voltage not exceeding 80 V, not fitted with connectors",Energy,Fuel Cells,Input
+516,85444920,"Insulated electric conductors nesoi, for a voltage not exceeding 80 V, not fitted with connectors",Energy,Fuel Cells,Input
+517,85444930,"Insulated electric conductors nesoi, of copper, for a voltage not exceeding 1,000 V, not fitted with connectors",Energy,Fuel Cells,Input
+518,85444990,"Insulated electric conductors nesoi, not of copper, for a voltage not exceeding 1,000 V, not fitted with connectors",Energy,Fuel Cells,Input
+519,85446020,"Insulated electric conductors nesoi, for a voltage exceeding 1,000 V, fitted with connectors",Energy,Fuel Cells,Input
+520,85446040,"Insulated electric conductors nesoi, of copper, for a voltage exceeding 1,000 V, not fitted with connectors",Energy,Fuel Cells,Input
+521,85446060,"Insulated electric conductors nesoi, not of copper, for a voltage exceeding 1,000 V, not fitted with connectors",Energy,Fuel Cells,Input
+522,85452000,Carbon brushes of a kind used for electrical purposes,Energy,Fuel Cells,Input
+523,85469000,"Electrical insulators of any material, other than glass or ceramics",Energy,Fuel Cells,Input
+524,85472000,"Insulating fittings for electrical machines, appliances or equipment, of plastics",Energy,Fuel Cells,Input
+525,90251940,"Pyrometers, not combined with other instruments",Energy,Fuel Cells,Input
+526,90251980,"Thermometers, for direct reading, not combined with other instruments, other than liquid-filled thermometers",Energy,Fuel Cells,Input
+527,90258010,"Electrical: hydrometers & sim. floating instr., hygrometers, psychometers, & any comb. with or w/o thermometers, pyrometers, & barometers",Energy,Fuel Cells,Input
+528,90261040,"Flow meters, other than electrical, for measuring or checking the flow of liquids",Energy,Fuel Cells,Input
+529,90261060,"Instruments and apparatus for measuring or checking the level of liquids, other than flow meters, non-electrical",Energy,Fuel Cells,Input
+530,90262040,Electrical instruments and apparatus for measuring or checking the pressure of liquids or gases,Energy,Fuel Cells,Input
+531,90262080,"Instruments and apparatus, other than electrical, for measuring or checking the pressure of liquids or gases",Energy,Fuel Cells,Input
+532,90268020,"Electrical instruments and apparatus for measuring or checking variables of liquids or gases, nesoi",Energy,Fuel Cells,Input
+533,90268040,"Nonelectrical heat meters incorporating liquid supply meters, and anemometers",Energy,Fuel Cells,Input
+534,90268060,"Nonelectrical instruments and apparatus for measuring or checking variables of liquids or gases, nesoi",Energy,Fuel Cells,Input
+535,90269020,Parts and accessories of electrical instruments and apparatus for measuring or checking variables of liquids or gases,Energy,Fuel Cells,Input
+536,90269040,"Parts and accessories of nonelectrical flow meters, heat meters incorporating liquid supply meters and anemometers",Energy,Fuel Cells,Input
+537,90269060,"Parts and accessories of nonelectrical instruments and apparatus for measuring or checking variables of liquids or gases, nesoi",Energy,Fuel Cells,Input
+538,90271020,Electrical gas or smoke analysis apparatus,Energy,Fuel Cells,Input
+539,90271040,Nonelectrical optical instruments and apparatus for gas or smoke analysis,Energy,Fuel Cells,Input
+540,90271060,"Nonelectrical gas or smoke analysis apparatus, other than optical instruments and apparatus",Energy,Fuel Cells,Input
+541,90328920,"Automatic voltage and voltage-current regulators, designed for use in a 6, 12, or 24 V system",Energy,Fuel Cells,Input
+542,90328940,"Automatic voltage and voltage-current regulators, not designed for use in a 6, 12, or 24 V system",Energy,Fuel Cells,Input
+543,90328960,"Automatic regulating or controlling instruments and apparatus, nesoi",Energy,Fuel Cells,Input
+544,90329021,"Parts and accessories of automatic voltage and voltage-current regulators designed for use in a 6, 12, or 24 V system, nesoi",Energy,Fuel Cells,Input
+545,90329041,"Parts and accessories of automatic voltage and voltage-current regulators, not designed for use in a 6, 12, or 24 V system, nesoi",Energy,Fuel Cells,Input
+546,90329061,"Parts and accessories for automatic regulating or controlling instruments and apparatus, nesoi",Energy,Fuel Cells,Input
+547,84543000,"Casting machines, of a kind used in metallurgy or in metal foundries",Energy,Hydropower,Capital good
+548,84549000,"Parts of converters, ladles, ingot molds and casting machines, of a kind used in metallurgy or in metal foundries",Energy,Hydropower,Capital good
+549,25221000,Quicklime (other than calcium oxide and hydroxide of heading 2825),Energy,Hydropower,Input
+550,25232100,"Portland cement (white cement), whether or not artificially colored",Energy,Hydropower,Input
+551,25232900,"Portland cement (other than white cement), whether or not colored",Energy,Hydropower,Input
+552,26030000,Copper ores and concentrates,Energy,Hydropower,Input
+553,39011050,"Polyethylene having a specific gravity of less than 0.94, in primary forms, nesoi",Energy,Hydropower,Input
+554,39012010,"Polyethylene having a specific gravity of 0.94 or more and having a relative viscosity of 1.44 or more, in primary forms",Energy,Hydropower,Input
+555,39012050,"Polyethylene having a specific gravity of 0.94 or more, in primary forms, nesoi",Energy,Hydropower,Input
+556,70198010,Insulation products of glass wool,Energy,Hydropower,Input
+557,84101100,"Hydraulic turbines and water wheels of a power not exceeding 1,000 kW",Energy,Hydropower,Input
+558,84101200,"Hydraulic turbines and water wheels of a power exceeding 1,000 kW but not exceeding 10,000 kW",Energy,Hydropower,Input
+559,84101300,"Hydraulic turbines and water wheels of a power exceeding 10,000 kW",Energy,Hydropower,Input
+560,84109000,"Parts, including regulators, of hydraulic turbines and water wheels",Energy,Hydropower,Input
+561,84135000,"Reciprocating positive displacement pumps for liquids, not fitted with a measuring device, nesoi",Energy,Hydropower,Input
+562,84136000,"Rotary positive displacement pumps for liquids, not fitted with a measuring device, nesoi",Energy,Hydropower,Input
+563,84138100,"Pumps for liquids, not fitted with a measuring device, nesoi",Energy,Hydropower,Input
+564,84139190,"Parts of pumps, nesoi",Energy,Hydropower,Input
+565,84148020,"Gas compressors, nesoi",Energy,Hydropower,Input
+566,84149041,"Parts of air or gas compressors, nesoi",Energy,Hydropower,Input
+567,84833040,"Bearing housings of the flange, take-up, cartridge and hanger unit type",Energy,Hydropower,Input
+568,84833080,Bearing housings nesoi; plain shaft bearings,Energy,Hydropower,Input
+569,85014040,"AC motors, nesoi, single-phase, exceeding 74.6 W but not exceeding 735 W",Energy,Hydropower,Input
+570,85014050,"AC motors, nesoi, single-phase, exceeding 735 W but under 746 W",Energy,Hydropower,Input
+571,85014060,"AC motors nesoi, single-phase, of 746 W or more",Energy,Hydropower,Input
+572,85015150,"AC motors, nesoi, multi-phase, of an output exceeding 735 W but under 746 W",Energy,Hydropower,Input
+573,85015160,"AC motors nesoi, multi-phase of an output of 746 W but not exceeding 750 W",Energy,Hydropower,Input
+574,85015240,"AC motors nesoi, multi-phase, of an output exceeding 750 W but not exceeding 14.92 kW",Energy,Hydropower,Input
+575,85015280,"AC motors nesoi, multi-phase, of an output exceeding 14.92 kW but not exceeding 75 kW",Energy,Hydropower,Input
+576,85015340,"AC motors nesoi, multi-phase, of an output exceeding 75 kW but under 149.2 kW",Energy,Hydropower,Input
+577,85030095,"Other parts, nesoi, suitable for use solely or principally with the machines in heading 8501 or 8502",Energy,Hydropower,Input
+578,85076000,Lithium-ion batteries,Energy,Large Capacity Batteries,Final
+579,85078041,"Other storage batteries nesoi, of a kind used as the primary source of electrical power for electrically powered vehicles of 8703.90",Energy,Large Capacity Batteries,Final
+580,85078082,"Other storage batteries nesoi, other than of a kind used as the primary source of power for electric vehicles",Energy,Large Capacity Batteries,Final
+581,25041010,"Natural graphite, crystalline flake (not including flake dust)",Energy,Large Capacity Batteries,Input
+582,25041050,Natural graphite in powder or flakes (other than crystalline flake),Energy,Large Capacity Batteries,Input
+583,25309010,Natural cryolite; natural chiolite,Energy,Large Capacity Batteries,Input
+584,25309020,Natural micaceous iron oxides,Energy,Large Capacity Batteries,Input
+585,25309080,"Other mineral substances, not elsewhere specified or included",Energy,Large Capacity Batteries,Input
+586,26020000,Manganese ores and concentrates including ferruginous manganese ores & concentrates with manganese content over 20% calculated on dry weight,Energy,Large Capacity Batteries,Input
+587,26050000,Cobalt ores and concentrates,Energy,Large Capacity Batteries,Input
+588,26080000,Zinc ores and concentrates,Energy,Large Capacity Batteries,Input
+589,26159060,"Niobium, tantalum or vanadium ores and concentrates, nesoi",Energy,Large Capacity Batteries,Input
+590,26201100,Hard zinc spelter,Energy,Large Capacity Batteries,Input
+591,26201930,Zinc dross and skimmings (not from from the mfr. of iron or steel),Energy,Large Capacity Batteries,Input
+592,26204000,"Ash and residues (not from the mfr. of iron or steel), containing mainly aluminum",Energy,Large Capacity Batteries,Input
+593,26209910,"Ash and residues (other than from the manufacture of iron or steel), containing mainly vanadium",Energy,Large Capacity Batteries,Input
+594,27131200,"Coke, petroleum coke, calcined",Energy,Large Capacity Batteries,Input
+595,28030000,Carbon (carbon blacks and other forms of carbon not elsewhere specified or included),Energy,Large Capacity Batteries,Input
+596,28046100,Silicon containing by weight not less than 99.99 percent of silicon,Energy,Large Capacity Batteries,Input
+597,28051990,"Alkali metals, other than sodium",Energy,Large Capacity Batteries,Input
+598,28170000,Zinc oxide; zinc peroxide,Energy,Large Capacity Batteries,Input
+599,28182000,"Aluminum oxide, other than artificial corundum",Energy,Large Capacity Batteries,Input
+600,28201000,Manganese dioxide,Energy,Large Capacity Batteries,Input
+601,28220000,Cobalt oxides and hydroxides; commercial cobalt oxides,Energy,Large Capacity Batteries,Input
+602,28252000,Lithium oxide and hydroxide,Energy,Large Capacity Batteries,Input
+603,28253000,Vanadium oxides and hydroxides,Energy,Large Capacity Batteries,Input
+604,28254000,Nickel oxides and hydroxides,Energy,Large Capacity Batteries,Input
+605,28259090,"Other inorganic bases; other metal oxides, hydroxides and peroxides, nesoi",Energy,Large Capacity Batteries,Input
+606,28273910,Vanadium chlorides,Energy,Large Capacity Batteries,Input
+607,28273925,Tin chlorides,Energy,Large Capacity Batteries,Input
+608,28273930,Titanium chlorides,Energy,Large Capacity Batteries,Input
+609,28273940,Tungsten hexachloride,Energy,Large Capacity Batteries,Input
+610,28273945,Barium chloride,Energy,Large Capacity Batteries,Input
+611,28273955,Iron chlorides,Energy,Large Capacity Batteries,Input
+612,28273960,Cobalt chlorides,Energy,Large Capacity Batteries,Input
+613,28273965,Zinc chloride,Energy,Large Capacity Batteries,Input
+614,28273990,"Chlorides, nesoi",Energy,Large Capacity Batteries,Input
+615,28332200,Aluminum sulfate,Energy,Large Capacity Batteries,Input
+616,28332400,Nickel sulfate,Energy,Large Capacity Batteries,Input
+617,28332910,Cobalt sulfate,Energy,Large Capacity Batteries,Input
+618,28369100,Lithium carbonates,Energy,Large Capacity Batteries,Input
+619,28429010,"Fulminates, cyanates and thiocyanates",Energy,Large Capacity Batteries,Input
+620,28429090,"Salts of inorganic acids or peroxoacids nesoi, excluding azides",Energy,Large Capacity Batteries,Input
+621,29209051,"Nonaromatic esters of inorganic acids of nonmetals and their salts and derivatives, excluding esters of hydrogen halides, nesoi",Energy,Large Capacity Batteries,Input
+622,30069380,"Placebos and blinded clinical trial kits, put up in measured doses, containing other chemicals other than medicaments",Energy,Large Capacity Batteries,Input
+623,38011010,"Artificial graphite plates, rods, powder and other forms, for manufacture into brushes for electric generators, motors or appliances",Energy,Large Capacity Batteries,Input
+624,38011050,"Artificial graphite, nesoi",Energy,Large Capacity Batteries,Input
+625,38012000,Colloidal or semi-colloidal graphite,Energy,Large Capacity Batteries,Input
+626,38019000,"Preparations based on graphite or other carbon in the form of pastes, blocks, plates or other semimanufactures, nesoi",Energy,Large Capacity Batteries,Input
+627,38249200,Polyglycol esters mixtures of methylphosphonic acid,Energy,Large Capacity Batteries,Input
+628,38249939,"Mixtures of two or more inorganic compounds, nesoi",Energy,Large Capacity Batteries,Input
+629,38249993,"Chemical products and preparations and residual products of the chemical or allied industries, nesoi",Energy,Large Capacity Batteries,Input
+630,39021000,"Polypropylene, in primary forms",Energy,Large Capacity Batteries,Input
+631,39046910,"Fluoropolymers, elastomeric, other than polytetrafluoroethylene, in primary forms",Energy,Large Capacity Batteries,Input
+632,39211900,"Nonadhesive plates, sheets, film, foil and strip, cellular, of plastics nesoi",Energy,Large Capacity Batteries,Input
+633,68151100,Carbon fibers,Energy,Large Capacity Batteries,Input
+634,74102130,"Refined copper, clad laminates, w/thickness of 0.15 mm or less, backed",Energy,Large Capacity Batteries,Input
+635,74102160,"Refined copper, foil, w/thickness of 0.15 mm or less, backed",Energy,Large Capacity Batteries,Input
+636,75011000,Nickel mattes,Energy,Large Capacity Batteries,Input
+637,75012000,Nickel oxide sinters and other intermediate products of nickel metallurgy,Energy,Large Capacity Batteries,Input
+638,75021000,"Nickel (o/than alloy), unwrought",Energy,Large Capacity Batteries,Input
+639,75040000,"Nickel, powders and flakes",Energy,Large Capacity Batteries,Input
+640,76071130,"Aluminum, foil, w/thickness n/o 0.01 mm, rolled but not further worked, not backed",Energy,Large Capacity Batteries,Input
+641,76071930,"Aluminum, foil nesoi, w/thickness n/o 0.15 mm, cut to shape, not rolled, not backed",Energy,Large Capacity Batteries,Input
+642,76071960,"Aluminum, foil nesoi, w/thickness o/0.15mm but n/o 0.2 mm or 0.15mm or less & not cut to shape, not rolled, not backed, nesoi",Energy,Large Capacity Batteries,Input
+643,81052030,"Cobalt alloys, unwrought",Energy,Large Capacity Batteries,Input
+644,81052060,"Cobalt (other than alloys), unwrought",Energy,Large Capacity Batteries,Input
+645,81052090,"Cobalt, mattes and other intermediate products of cobalt metallurgy; cobalt powders",Energy,Large Capacity Batteries,Input
+646,81053000,Cobalt waste and scrap,Energy,Large Capacity Batteries,Input
+647,81110049,"Unwrought manganese, nesoi",Energy,Large Capacity Batteries,Input
+648,85079080,"Parts of storage batteries, including separators therefor, other than parts of lead-acid storage batteries",Energy,Large Capacity Batteries,Input
+649,84169000,"Parts for furnace burners, mechanical stokers, mechanical grates, mechanical ash dischargers and similar appliances",Energy,Neodymium Magnets,Capital good
+650,84171000,"Furnaces and ovens for the roasting, melting or other heat treatment of ores, pyrites or of metals",Energy,Neodymium Magnets,Capital good
+651,84543000,"Casting machines, of a kind used in metallurgy or in metal foundries",Energy,Neodymium Magnets,Capital good
+652,84549000,"Parts of converters, ladles, ingot molds and casting machines, of a kind used in metallurgy or in metal foundries",Energy,Neodymium Magnets,Capital good
+653,84561110,"Machine tools operated by laser, for working metal",Energy,Neodymium Magnets,Capital good
+654,84561210,"Machine tools operated by light or photon beam processes, for working metal",Energy,Neodymium Magnets,Capital good
+655,84562010,"Machine tools operated by ultrasonic processes, for working metal",Energy,Neodymium Magnets,Capital good
+656,84563010,"Machine tools operated by electro-discharge processes, for working metal",Energy,Neodymium Magnets,Capital good
+657,84564010,"Machine tools operated by plasma arc process, for working metal",Energy,Neodymium Magnets,Capital good
+658,84569031,"Machine tools operated by electro-chemical or ionic-beam processes, for working metal",Energy,Neodymium Magnets,Capital good
+659,84581100,"Horizontal lathes (including turning centers) for removing metal, numerically controlled",Energy,Neodymium Magnets,Capital good
+660,84581900,"Horizontal lathes (including turning centers) for removing metal, other than numerically controlled",Energy,Neodymium Magnets,Capital good
+661,84589110,"Vertical turret lathes (including turning centers) for removing metal, numerically controlled",Energy,Neodymium Magnets,Capital good
+662,84589150,"Lathes (including turning centers), other than horizontal or vertical turret lathes, for removing metal, numerically controlled",Energy,Neodymium Magnets,Capital good
+663,84589910,"Vertical turret lathes (including turning centers) for removing metal, other than numerically controlled",Energy,Neodymium Magnets,Capital good
+664,84589950,"Lathes (including turning centers), other than horizontal or vertical turret lathes, for removing metal, other than numerically controlled",Energy,Neodymium Magnets,Capital good
+665,84591000,"Way-type unit head machines for drilling, boring, milling, threading or tapping by removing metal, other than lathes of heading 8458",Energy,Neodymium Magnets,Capital good
+666,85051100,"Permanent magnets and articles intended to become permanent magnets after magnetization, of metal",Energy,Neodymium Magnets,Final
+667,26011200,"Iron ores and concentrates (other than roasted iron pyrites), agglomerated",Energy,Neodymium Magnets,Input
+668,26040000,Nickel ores and concentrates,Energy,Neodymium Magnets,Input
+669,26050000,Cobalt ores and concentrates,Energy,Neodymium Magnets,Input
+670,28045000,Boron; tellurium,Energy,Neodymium Magnets,Input
+671,28100000,Oxides of boron; boric acids,Energy,Neodymium Magnets,Input
+672,28469020,Mixtures of rare-earth oxides or of rare-earth chlorides,Energy,Neodymium Magnets,Input
+673,26159030,Synthetic tantalum-niobium concentrates,Energy,Nuclear Power,Input
+674,26159060,"Niobium, tantalum or vanadium ores and concentrates, nesoi",Energy,Nuclear Power,Input
+675,28053000,"Rare-earth metals, scandium and yttrium, whether or not intermixed or interalloyed",Energy,Nuclear Power,Input
+676,28191000,Chromium trioxide,Energy,Nuclear Power,Input
+677,28199000,"Chromium oxides and hydroxides, other than chromium trioxide",Energy,Nuclear Power,Input
+678,28259015,Niobium oxide,Energy,Nuclear Power,Input
+679,28332940,Chromium sulfate,Energy,Nuclear Power,Input
+680,28441010,Natural uranium metal,Energy,Nuclear Power,Input
+681,28441020,Natural uranium compounds,Energy,Nuclear Power,Input
+682,28441050,"Alloys, dispersions (including cermets), ceramic products and mixtures containing natural uranium or natural uranium compounds",Energy,Nuclear Power,Input
+683,28442000,"Uranium enriched in U235 and plutonium and their compounds; alloys, dispersions, ceramic products and mixtures containing these products",Energy,Nuclear Power,Input
+684,28445000,Spent (irradiated) fuel elements (cartridges) of nuclear reactors,Energy,Nuclear Power,Input
+685,28469020,Mixtures of rare-earth oxides or of rare-earth chlorides,Energy,Nuclear Power,Input
+686,28469040,Yttrium materials and compounds containing by wt. >19% But < 85% yttrium oxide equivalent,Energy,Nuclear Power,Input
+687,28469080,"Compounds, inorganic or organic, of rare-earth metals, of yttrium or of scandium, or of mixtures of these metals, nesoi",Energy,Nuclear Power,Input
+688,28499020,Chromium carbide,Energy,Nuclear Power,Input
+689,69021050,"Refractory bricks, blocks, tiles and similar goods containing by weight o/50% MgO, CaO, or Cr2O3",Energy,Nuclear Power,Input
+690,72029340,Ferroniobium containing by weight less than 0.02 percent of phosphorus or sulfur or less than 0.4 percent of silicon,Energy,Nuclear Power,Input
+691,72029380,"Ferroniobium, nesoi",Energy,Nuclear Power,Input
+692,81092100,"Zirconium, unwrought; zirconium powders, containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+693,81092900,"Zirconium, unwrought; zirconium powders, not containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+694,81093100,"Zirconium waste and scrap, containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+695,81093900,"Zirconium waste and scrap, not containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+696,81099100,"Zirconium, articles, nesoi, containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+697,81099900,"Zirconium, articles, nesoi, not containing less than 1 part hafnium to 500 parts zirconium by weight",Energy,Nuclear Power,Input
+698,81122100,"Chromium, unwrought; chromium powders",Energy,Nuclear Power,Input
+699,81122900,"Articles of chromium, nesoi",Energy,Nuclear Power,Input
+700,81123100,"Hafnium, unwrought; hafnium powders; hafnium waste and scrap",Energy,Nuclear Power,Input
+701,81123900,"Hafnium, articles, nesoi",Energy,Nuclear Power,Input
+702,81124900,"Rhenium, articles, nesoi",Energy,Nuclear Power,Input
+703,81129230,"Indium, unwrought; indium powders",Energy,Nuclear Power,Input
+704,81129240,"Niobium (columbium), unwrought; niobium powders",Energy,Nuclear Power,Input
+705,81129991,"Articles of gallium, indium, or niobium, nesoi",Energy,Nuclear Power,Input
+706,84011000,Nuclear reactors,Energy,Nuclear Power,Input
+707,84012000,"Machinery and apparatus for isotopic separation, and parts thereof",Energy,Nuclear Power,Input
+708,84013000,"Fuel elements (cartridges), non-irradiated and parts thereof",Energy,Nuclear Power,Input
+709,84014000,Parts of nuclear reactors,Energy,Nuclear Power,Input
+710,84021100,Watertube boilers with a steam production exceeding 45 tons per hour,Energy,Nuclear Power,Input
+711,84021200,Watertube boilers with a steam production not exceeding 45 tons per hour,Energy,Nuclear Power,Input
+712,84021900,"Vapor-generating boilers, including hybrid boilers, other than watertube boilers",Energy,Nuclear Power,Input
+713,84022000,Super-heated water boilers,Energy,Nuclear Power,Input
+714,84029000,Parts of steam- or other vapor-generating boilers,Energy,Nuclear Power,Input
+715,84041000,Auxiliary plant for use with boilers of heading 8402 or 8403,Energy,Nuclear Power,Input
+716,84042000,Condensers for steam or other vapor power units,Energy,Nuclear Power,Input
+717,84049000,Parts for auxiliary plant for use with boilers of heading 8402 and 8403 and condensers for steam or vapor power units,Energy,Nuclear Power,Input
+718,84068110,"Steam turbines other than for marine propulsion, of an output exceeding 40 MW",Energy,Nuclear Power,Input
+719,84068190,"Vapor turbines (excluding steam turbines) other than for marine propulsion, of an output exceeding 40 MW",Energy,Nuclear Power,Input
+720,84068210,"Steam turbines other than for marine propulsion, of an output not exceeding 40 MW",Energy,Nuclear Power,Input
+721,84068290,"Vapor turbines (excluding steam turbines) other than for marine propulsion, of an output not exceeding 40 MW",Energy,Nuclear Power,Input
+722,84069020,"Parts of steam turbines, rotors, finished for final assembly",Energy,Nuclear Power,Input
+723,84069040,"Parts of steam turbines, blades, rotating or stationary",Energy,Nuclear Power,Input
+724,84069045,"Parts of steam turbines, other",Energy,Nuclear Power,Input
+725,84069050,"Parts of vapor turbines other than steam turbines, rotors, finished for final assembly",Energy,Nuclear Power,Input
+726,84069070,"Parts of vapor turbines other than steam turbines, blades, rotating or stationary",Energy,Nuclear Power,Input
+727,84069075,"Parts of vapor turbines other than steam turbines, other",Energy,Nuclear Power,Input
+728,85013261,"DC generators, other than photovoltaic generators, of an output exceeding 750 W but not exceeding 75 kW",Energy,Platinum Group Metals,Capital good
+729,85017220,"Photovoltaic DC generators, of an output exceeding 750 W but not exceeding 75 kW",Energy,Platinum Group Metals,Capital good
+730,85433020,"Electrical machines and apparatus for electroplating, electrolysis, or electrophoresis for making printed circuits",Energy,Platinum Group Metals,Capital good
+731,85433090,"Other electrical machines and apparatus for electroplating, electrolysis, or electrophoresis",Energy,Platinum Group Metals,Capital good
+732,26011100,"Iron ores and concentrates (other than roasted iron pyrites), not agglomerated",Energy,Platinum Group Metals,Input
+733,26011200,"Iron ores and concentrates (other than roasted iron pyrites), agglomerated",Energy,Platinum Group Metals,Input
+734,26030000,Copper ores and concentrates,Energy,Platinum Group Metals,Input
+735,26040000,Nickel ores and concentrates,Energy,Platinum Group Metals,Input
+736,26050000,Cobalt ores and concentrates,Energy,Platinum Group Metals,Input
+737,26100000,Chromium ores and concentrates,Energy,Platinum Group Metals,Input
+738,71101100,"Platinum, unwrought or in powder form",Energy,Platinum Group Metals,Input
+739,71101900,"Platinum, in semimanufactured forms",Energy,Platinum Group Metals,Input
+740,71102100,"Palladium, unwrought or in powder form",Energy,Platinum Group Metals,Input
+741,71102900,"Palladium, in semimanufactured forms",Energy,Platinum Group Metals,Input
+742,71103100,"Rhodium, unwrought or in powder form",Energy,Platinum Group Metals,Input
+743,71103900,"Rhodium, in semimanufactured forms",Energy,Platinum Group Metals,Input
+744,71104100,"Iridium, osmium and ruthenium, unwrought or in powder form",Energy,Platinum Group Metals,Input
+745,71104900,"Iridium, osmium and ruthenium, in semimanufactured forms",Energy,Platinum Group Metals,Input
+746,71151000,Platinum catalysts in the form of wire cloth or grill,Energy,Platinum Group Metals,Input
+747,85414200,"Photovoltaic cells, not assembled in modules or made up into panels",Energy,Solar,Final
+748,85414300,Photovoltaic cells assembled in modules or made up into panels,Energy,Solar,Final
+749,85414910,"Other photosensitive semiconductor diodes, other than light-emitting",Energy,Solar,Final
+750,25051010,"Natural silica and quartz sands, containing by weight 95% or more of silica and not more than 0.6% of oxide of iron",Energy,Solar,Input
+751,25061000,Quartz (other than natural sands),Energy,Solar,Input
+752,25191000,Natural magnesium carbonate (magnesite),Energy,Solar,Input
+753,25292100,"Fluorspar, containing by weight 97 percent or less of calcium fluoride",Energy,Solar,Input
+754,25292200,"Fluorspar, containing by weight more than 97 percent of calcium fluoride",Energy,Solar,Input
+755,26020000,Manganese ores and concentrates including ferruginous manganese ores & concentrates with manganese content over 20% calculated on dry weight,Energy,Solar,Input
+756,26080000,Zinc ores and concentrates,Energy,Solar,Input
+757,26090000,Tin ores and concentrates,Energy,Solar,Input
+758,26100000,Chromium ores and concentrates,Energy,Solar,Input
+759,28046100,Silicon containing by weight not less than 99.99 percent of silicon,Energy,Solar,Input
+760,28046910,"Silicon, containing by weight less than 99.99 percent but not less than 99 percent of silicon",Energy,Solar,Input
+761,28061000,Hydrogen chloride (Hydrochloric acid),Energy,Solar,Input
+762,38180000,"Chemical elements doped for use in electronics, in the form of discs, wafers etc., chemical compounds doped for electronic use",Energy,Solar,Input
+763,39011010,"Polyethylene having a specific gravity of less than 0.94 and having a relative viscosity of 1.44 or more, in primary forms",Energy,Solar,Input
+764,39011050,"Polyethylene having a specific gravity of less than 0.94, in primary forms, nesoi",Energy,Solar,Input
+765,39012010,"Polyethylene having a specific gravity of 0.94 or more and having a relative viscosity of 1.44 or more, in primary forms",Energy,Solar,Input
+766,39012050,"Polyethylene having a specific gravity of 0.94 or more, in primary forms, nesoi",Energy,Solar,Input
+767,39013020,"Ethylene copolymer: Vinyl acetate-vinyl chloride-ethylene terpoly w/ < 50% deriv of vinyl acetate, exc polymer aromatic/mod arom monomers",Energy,Solar,Input
+768,39013060,"Ethylene-vinyl acetate copolymers, nesoi",Energy,Solar,Input
+769,39079950,"Other polyesters nesoi, saturated, in primary forms",Energy,Solar,Input
+770,39191010,"Self-adhesive plates, sheets, other flat shapes, of plastics, in rolls n/o 20 cm wide, light-reflecting surface produced by glass grains",Energy,Solar,Input
+771,39191020,"Self-adhesive plates, sheets, other flat shapes, of plastics, in rolls n/o 20 cm wide, not having a light-reflecting glass grain surface",Energy,Solar,Input
+772,39199010,"Self-adhesive plates, sheets, other flat shapes, of plastics, light-reflecting surface produced by glass grains, nesoi",Energy,Solar,Input
+773,39199050,"Self-adhesive plates, sheets, other flat shapes, of plastics, not having a light-reflecting surface produced by glass grains, nesoi",Energy,Solar,Input
+774,39201000,"Nonadhesive plates, sheets, film, foil and strip, noncellular, not reinforced or combined with other materials, of polymers of ethylene",Energy,Solar,Input
+775,39209920,"Nonadhesive film, strips and sheets, noncellular, not combined with other materials, of plastics nesoi, flexible",Energy,Solar,Input
+776,39211100,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polymers of styrene",Energy,Solar,Input
+777,39211211,"Nonadhesive plates, sheets, film, foil, strip, cellular, of polymers of vinyl chloride, with man-made textile fibers, over 70% plastics",Energy,Solar,Input
+778,39211215,"Nonadhesive plates, sheets, film, foil, strip, cellular, of polymers of vinyl chloride, with man-made textile fibers, n/o 70% plastics",Energy,Solar,Input
+779,39211219,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polymers of vinyl chloride, combined with textile materials, nesoi",Energy,Solar,Input
+780,39211250,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polymers of vinyl chloride, not combined with textile materials",Energy,Solar,Input
+781,39211311,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polyurethanes, with man-made textile fibers, over 70% plastics",Energy,Solar,Input
+782,39211315,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polyurethanes, with man-made textile fibers, not over 70 percent plastics",Energy,Solar,Input
+783,39211319,"Nonadhesive plates, sheets, film, foil and strip, cellular, of polyurethanes, combined with textile materials nesoi",Energy,Solar,Input
+784,39211350,"Nonadhesive plates, sheets, film, foil and strip, cellular,of polyurethanes, not combined with textile materials, nesoi",Energy,Solar,Input
+785,39211400,"Nonadhesive plates, sheets, film, foil and strip, cellular, of regenerated cellulose",Energy,Solar,Input
+786,39211900,"Nonadhesive plates, sheets, film, foil and strip, cellular, of plastics nesoi",Energy,Solar,Input
+787,39219011,"Nonadhesive plates, sheets, film, foil, strip, of noncellular plastics combined with man-made fibers, n/o 1.492 kg/sq m, over 70% plastics",Energy,Solar,Input
+788,39219015,"Nonadhesive plates, sheets, film, foil, strip, of noncellular plastics combined with man-made fibers, n/o 1.492 kg/sq m, n/o 70% plastics",Energy,Solar,Input
+789,39219019,"Nonadhesive plates, sheets, film, foil and strip, of noncellular plastics combined with textile materials, nesoi, not over 1.492 kg/sq m",Energy,Solar,Input
+790,39219021,"Nonadhesive plates, sheets, film, foil and strip, of noncellular plastics combined with cotton, over 1.492 kg/sq m",Energy,Solar,Input
+791,39219025,"Nonadhesive plates, sheets, film, foil and strip, of noncellular plastics combined with man-made fibers, over 1.492 kg/sq m",Energy,Solar,Input
+792,39219029,"Nonadhesive plates, sheets, film, foil and strip, of noncellular plastics combined with textile materials, nesoi, over 1.492 kg/sq m",Energy,Solar,Input
+793,39219040,"Nonadhesive plates, sheets, film, foil and strip, flexible, nesoi, of noncellular plastics",Energy,Solar,Input
+794,39219050,"Nonadhesive plates, sheets, film, foil and strip, nonflexible, nesoi, of noncellular plastics",Energy,Solar,Input
+795,44012100,Coniferous wood in chips or particles,Energy,Solar,Input
+796,44012200,Nonconiferous wood in chips or particles,Energy,Solar,Input
+797,44029001,"Wood charcoal (including shell or nut charcoal), whether or not agglomerated, other than of bamboo or shell or nut",Energy,Solar,Input
+798,70071900,"Toughened (tempered) safety glass, not of size or shape suitable for incorporation in vehicles, aircraft, spacecraft or vessels",Energy,Solar,Input
+799,70072900,"Laminated safety glass, not of size or shape suitable for incorporation in vehicles, aircraft, spacecraft or vessels",Energy,Solar,Input
+800,72022110,Ferrosilicon containing by weight more than 55% but not more than 80% of silicon and more than 3% of calcium,Energy,Solar,Input
+801,72022150,"Ferrosilicon containing by weight more than 55% but not more than 80% of silicon, nesoi",Energy,Solar,Input
+802,72022175,Ferrosilicon containing by weight more than 80% but not more than 90% of silicon,Energy,Solar,Input
+803,72022190,Ferrosilicon containing by weight more than 90% of silicon,Energy,Solar,Input
+804,76071130,"Aluminum, foil, w/thickness n/o 0.01 mm, rolled but not further worked, not backed",Energy,Solar,Input
+805,79011100,"Zinc (o/than alloy), unwrought, containing o/99.99% by weight of zinc",Energy,Solar,Input
+806,79011250,"Zinc (o/than alloy), unwrought, o/than casting-grade zinc, containing at least 97.5% but less than 99.99% by wt. of zinc",Energy,Solar,Input
+807,79012000,"Zinc alloy, unwrought",Energy,Solar,Input
+808,79020000,"Zinc, waste and scrap",Energy,Solar,Input
+809,79031000,"Zinc, dust",Energy,Solar,Input
+810,79039030,"Zinc, powders",Energy,Solar,Input
+811,79039060,"Zinc, flakes",Energy,Solar,Input
+812,79040000,"Zinc, bars, rods, profiles and wire",Energy,Solar,Input
+813,81041100,"Magnesium, unwrought, containing at least 99.8 percent by weight of magnesium",Energy,Solar,Input
+814,81041900,"Magnesium, unwrought, nesoi",Energy,Solar,Input
+815,81042000,"Magnesium, waste and scrap",Energy,Solar,Input
+816,81110030,"Manganese, waste and scrap",Energy,Solar,Input
+817,81122100,"Chromium, unwrought; chromium powders",Energy,Solar,Input
+818,81122200,Chromium waste and scrap,Energy,Solar,Input
+819,81129260,"Germanium, unwrought",Energy,Solar,Input
+820,85013120,"DC motors nesoi, of an output exceeding 37.5 W but not exceeding 74.6 W",Energy,Solar,Input
+821,85013140,"DC motors, nesoi, of an output exceeding 74.6 W but not exceeding 735 W",Energy,Solar,Input
+822,85013150,"DC motors, nesoi, of an output exceeding 735 W but under 746 W",Energy,Solar,Input
+823,85013160,"DC motors nesoi, of an output of 746 W but not exceeding 750 W",Energy,Solar,Input
+824,85013181,"DC generators, other than photovoltaic generators, of an output not exceeding 750 W",Energy,Solar,Input
+825,85013220,"DC motors nesoi, of an output exceeding 750 W but not exceeding 14.92 kW",Energy,Solar,Input
+826,85013245,"DC motors nesoi, of an output exceeding 14.92 kW but not exceeding 75 kW, used as primary source of mechanical power for electric vehicles",Energy,Solar,Input
+827,85013255,"DC motors nesoi, of an output exceeding 14.92 kW but not exceeding 75 kW, nesoi",Energy,Solar,Input
+828,85013261,"DC generators, other than photovoltaic generators, of an output exceeding 750 W but not exceeding 75 kW",Energy,Solar,Input
+829,85017100,"Photovoltaic DC generators, of an output not exceeding 50 W",Energy,Solar,Input
+830,85017210,"Photovoltaic DC generators, of an output exceeding 50 W but not exceeding 750 W",Energy,Solar,Input
+831,85017220,"Photovoltaic DC generators, of an output exceeding 750 W but not exceeding 75 kW",Energy,Solar,Input
+832,87082200,"Pts. & access. of bodies for mtr. vehicles of headings 8701 to 8705, front windshields, rear windows and other mtr. vehicle windows",Energy,Solar,Input
+833,28045000,Boron; tellurium,Energy,Solar,Input
+834,79011210,"Zinc (o/than alloy), unwrought, casting-grade zinc, containing at least 97.5% but less than 99.99% by weight of zinc",Energy,Solar,Input
+835,26011100,"Iron ores and concentrates (other than roasted iron pyrites), not agglomerated",Energy,Wind,Input
+836,26011200,"Iron ores and concentrates (other than roasted iron pyrites), agglomerated",Energy,Wind,Input
+837,26020000,Manganese ores and concentrates including ferruginous manganese ores & concentrates with manganese content over 20% calculated on dry weight,Energy,Wind,Input
+838,26030000,Copper ores and concentrates,Energy,Wind,Input
+839,26040000,Nickel ores and concentrates,Energy,Wind,Input
+840,26050000,Cobalt ores and concentrates,Energy,Wind,Input
+841,26060000,Aluminum ores and concentrates,Energy,Wind,Input
+842,26080000,Zinc ores and concentrates,Energy,Wind,Input
+843,26100000,Chromium ores and concentrates,Energy,Wind,Input
+844,26131000,"Molybdenum ores and concentrates, roasted",Energy,Wind,Input
+845,26139000,"Molybdenum ores and concentrates, not roasted",Energy,Wind,Input
+846,26140060,"Titanium ores and concentrates, other than synthetic rutile",Energy,Wind,Input
+847,26159060,"Niobium, tantalum or vanadium ores and concentrates, nesoi",Energy,Wind,Input
+848,38160020,"Refractory cements, mortars, concretes and similar compositions, other than products of heading 3801, other than dolomite ramming mix",Energy,Wind,Input
+849,38245000,Non-refractory mortars and concretes,Energy,Wind,Input
+850,39073000,Epoxide resins in primary forms,Energy,Wind,Input
+851,44072200,"Okoume, Obeche, Sapelli and other specified tropical woods, sawn or chipped lengthwise, sliced or peeled, over 6 mm thick",Energy,Wind,Input
+852,68151100,Carbon fibers,Energy,Wind,Input
+853,70191305,"Fiberglass rubber reinforcing yarn,not color,of electrically nonconduct. continuous filament 9 to 11 microns diam & impreg for adhesion to polym.",Energy,Wind,Input
+854,70191324,"Fiberglass rubber reinforce yarn,color,of electrically nonconduct. continuous filament 9 to 11 microns diam & impreg for adhesion to polym.",Energy,Wind,Input
+855,70191970,"Fiberglass rubber reinforce cord,of electrically nonconduct. contin. filament 9 to 11 microns diam & impreg for adhesion to polymeric comp.",Energy,Wind,Input
+856,70196105,"Closed woven fiberglass tire cord fabric of rovings,n/o 30 cm wide,of elect. nonconductive cont. filament 9-11 micron diam & impreg for adhesion",Energy,Wind,Input
+857,70196130,"Closed woven fiberglass tire cord fabric of roving,o/30 cm wide,n/color, of elect. nonconduct. contin. fil. 9-11 micron diam & impreg for adhesion",Energy,Wind,Input
+858,70196205,"Closed nonwoven fiberglass tire cord fabric of roving,n/o 30 cm wide,of electrical nonconduct. contin. filament 9-11 micron diam & impreg for adhesion",Energy,Wind,Input
+859,70196230,"Closed nonwoven fiberglass tire cord fabric of roving, not color,o/30 cm wide,of elect nonconduct. contin. fil. 9-11 micron diam & impreg for adhesion",Energy,Wind,Input
+860,70196305,"Closed woven glass yarn fabric, not coated/laminated, tire cord fabric, n/o 30 cm wide",Energy,Wind,Input
+861,70196330,"Closed woven glass yarn fabric, not coated/laminated, not color, tire cord fabric, o/30 cm wide",Energy,Wind,Input
+862,70196370,"Closed woven glass yarn fabric, not coated/laminated, tire cord fabric, colored, o/30 cm wide",Energy,Wind,Input
+863,70196405,"Closed woven glass yarn fabric, coated/laminated, tire cord fabric, n/o 30 cm wide",Energy,Wind,Input
+864,70196430,"Closed woven glass yarn fabric, coated/laminated, not color, tire cord fabric, o/30 cm wide",Energy,Wind,Input
+865,70196551,"Open woven glass fabrics, n/o 30 cm wide, tire cord fabric, of electrical nonconduct. contin. filament 9-11 mirco diam & impreg for adhesion",Energy,Wind,Input
+866,70196630,"Open woven glass fabrics, o/ 30cm wide & less than 250 g/m2, fiberglass tire cord fabric, not colored",Energy,Wind,Input
+867,70196670,"Open woven glass fabrics, o/30 cm wide & less than 250 g/m2, fiberglass tire cord fabric, colored",Energy,Wind,Input
+868,70196930,"Open woven glass fabrics o/30 cm wide & 250 g/m2 or more, fiberglass tire cord fabric, not colored",Energy,Wind,Input
+869,70196970,"Open woven glass fabrics o/30 cm wide & 250 g/m2 or more, fiberglass tire cord fabric, colored",Energy,Wind,Input
+870,70197205,"Chemically bonded closed fabric,n/o 30cm wide,fiberglass tire cord fabric,of elect nonconduct contin filament 9-11 mircons diam & impreg for adhesion",Energy,Wind,Input
+871,70197230,"Chemically bonded closed fabric, o/30 cm wide, fiberglass tire cord fabric, not colored",Energy,Wind,Input
+872,70197351,"Chemically bonded open fabric, fiberglass tire cord, of electrical nonconduct. contin. filament 9-11 mircons diam & impreg for adhesion",Energy,Wind,Input
+873,71101100,"Platinum, unwrought or in powder form",Energy,Wind,Input
+874,71101900,"Platinum, in semimanufactured forms",Energy,Wind,Input
+875,71102100,"Palladium, unwrought or in powder form",Energy,Wind,Input
+876,71102900,"Palladium, in semimanufactured forms",Energy,Wind,Input
+877,71103100,"Rhodium, unwrought or in powder form",Energy,Wind,Input
+878,71103900,"Rhodium, in semimanufactured forms",Energy,Wind,Input
+879,71104100,"Iridium, osmium and ruthenium, unwrought or in powder form",Energy,Wind,Input
+880,71104900,"Iridium, osmium and ruthenium, in semimanufactured forms",Energy,Wind,Input
+881,71129201,"Platinum waste and scrap, incl. metal clad w/ platinum, excluding sweepings containing other precious metals, other than goods of e-waste heading 8549",Energy,Wind,Input
+882,71151000,Platinum catalysts in the form of wire cloth or grill,Energy,Wind,Input
+883,72024100,Ferrochromium containing by weight more than 4 percent of carbon,Energy,Wind,Input
+884,72024910,Ferrochromium containing by weight more than 3 percent but not more than 4 percent of carbon,Energy,Wind,Input
+885,72024950,Ferrochromium containing by weight 3 percent or less of carbon,Energy,Wind,Input
+886,72261110,"Alloy silicon electrical steel (grain-oriented), width 300mm+ but less th/600mm, flat-rolled products",Energy,Wind,Input
+887,72261190,"Alloy silicon electrical steel (grain-oriented), width less th/300mm, flat-rolled products",Energy,Wind,Input
+888,73082000,"Iron or steel, towers and lattice masts",Energy,Wind,Input
+889,74032200,"Copper-tin base alloys (bronze), unwrought nesoi",Energy,Wind,Input
+890,76020000,"Aluminum, waste and scrap",Energy,Wind,Input
+891,76051100,"Aluminum (o/than alloy), wire, with a maximum cross-sectional dimension over 7 mm",Energy,Wind,Input
+892,76051900,"Aluminum (o/than alloy), wire, with a maximum cross-sectional dimension of 7 mm or less",Energy,Wind,Input
+893,79011100,"Zinc (o/than alloy), unwrought, containing o/99.99% by weight of zinc",Energy,Wind,Input
+894,79011210,"Zinc (o/than alloy), unwrought, casting-grade zinc, containing at least 97.5% but less than 99.99% by weight of zinc",Energy,Wind,Input
+895,79011250,"Zinc (o/than alloy), unwrought, o/than casting-grade zinc, containing at least 97.5% but less than 99.99% by wt. of zinc",Energy,Wind,Input
+896,79012000,"Zinc alloy, unwrought",Energy,Wind,Input
+897,81053000,Cobalt waste and scrap,Energy,Wind,Input
+898,81110030,"Manganese, waste and scrap",Energy,Wind,Input
+899,85016401,"AC generators (alternators), other than photovoltaic generators, of an output exceeding 750 kVA",Energy,Wind,Input
+900,85018090,"Photovoltaic AC generators, of an output exceeding 750 kVA",Energy,Wind,Input
+901,85023100,Wind-powered electric generating sets,Energy,Wind,Input
+902,85030020,Commutators suitable for use solely or principally with the machines of heading 8501 or 8502,Energy,Wind,Input
+903,85030065,"Stators and rotors for electric motors & generators of heading 8501, nesoi",Energy,Wind,Input
+904,85030095,"Other parts, nesoi, suitable for use solely or principally with the machines in heading 8501 or 8502",Energy,Wind,Input
+905,85042100,Liquid dielectric transformers having a power handling capacity not exceeding 650 kVA,Energy,Wind,Input
+906,85042200,"Liquid dielectric transformers having a power handling capacity exceeding 650 kVA but not exceeding 10,000 kVA",Energy,Wind,Input
+907,85042300,"Liquid dielectric transformers having a power handling capacity exceeding 10,000 kVA",Energy,Wind,Input
+908,85043200,"Electrical transformers other than liquid dielectric, having a power handling capacity exceeding 1 kVA but not exceeding 16 kVA",Energy,Wind,Input
+909,85043300,"Electrical transformers other than liquid dielectric, having a power handling capacity exceeding 16 kVA but not exceeding 500 kVA",Energy,Wind,Input
+910,85043400,"Electrical transformers other than liquid dielectric, having a power handling capacity exceeding 500 kVA",Energy,Wind,Input
+911,85051100,"Permanent magnets and articles intended to become permanent magnets after magnetization, of metal",Energy,Wind,Input
+912,85353000,"Isolating switches and make-and-break switches, for a voltage exceeding 1,000 V",Energy,Wind,Input
+913,85365070,"Certain specifed electronic and electromechanical snap-action switches, for a voltage not exceeding 1,000 V",Energy,Wind,Input
+914,85365090,"Switches nesoi, for switching or making connections to or in electrical circuits, for a voltage not exceeding 1,000 V",Energy,Wind,Input
+915,85369085,"Other electrical apparatus nesoi, for switching or making connections to or in electrical circuits, for a voltage not exceeding 1,000 V, nesoi",Energy,Wind,Input
