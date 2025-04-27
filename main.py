@@ -176,7 +176,7 @@ app.layout = html.Div([
                 dcc.Graph(id='multi-scri-bar-chart', style={"height": "250px"})
             ]
         )
-    ], className="bg-white shadow p-4 rounded-xl", style={"marginBottom": "30px"}),
+    ], className="bg-white shadow p-4 rounded-xl", style={"marginBottom": "30px", "minHeight": "600px"}),
 ], className="p-4 space-y-6")
 
 # Callback when API key is updated

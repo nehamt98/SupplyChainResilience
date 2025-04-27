@@ -156,8 +156,8 @@ def calculate_scri(imports, exports, export_count):
     IDI = max(min((M - X) / M, 1.0), 0.0) if M > 0 else 0.0
     SCRI = round((HHI +  (1-DiversityScore) + IDI)/3, 4)
     return {
-        "Total Imports": M,
-        "Total Exports": X,
+        "Total Imports": round(M,2),
+        "Total Exports": round(X,2),
         "HHI": round(HHI, 4),
         "Diversity Score": round(DiversityScore, 4),
         "IDI": round(IDI, 4),
