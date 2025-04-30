@@ -278,7 +278,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
             html.Div([
                 html.Div("Composite SCRI", className="text-sm font-semibold text-gray-700"),
                 html.Div(f"{scri_result['SCRI']:.4f}", className="text-3xl font-extrabold mt-1 text-gray-900"),
-                html.Div("Aggregated risk score from HHI, Diversity, and IDI", className="text-sm mt-2 text-gray-600"),
+                html.Div("Aggregated risk score from HHI, Diversity, and IDI.", className="text-sm mt-2 text-gray-600"),
             ]),
             html.Div("The higher the score, the greater the risk", className="text-xs text-gray-500 mt-4")
         ], className="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow flex flex-col justify-between")
