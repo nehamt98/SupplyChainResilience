@@ -8,7 +8,6 @@ from dash import Dash, dcc, html, Input, Output, no_update, exceptions
 import plotly.express as px
 import plotly.graph_objects as go
 from utils.main_utils import fetch_countries, fetch_commodities, calculate_scri, get_top_exporters, get_trade_info
-import copy
 
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2023, 2010, -1)]
@@ -76,7 +75,7 @@ app.layout = html.Div([
     ], style={"marginBottom": "30px"}),
 
 
-    # Risk Metric and Summary
+    # Risk Metrics and Summary
     dcc.Loading(
         id="loading-commodity-analysis",
         type="dot",
@@ -116,7 +115,7 @@ app.layout = html.Div([
                     }
                 ),
 
-                # 🥧 Middle: Pie Chart Panel
+                # Middle: Pie Chart Panel
                 html.Div(
                     dcc.Graph(
                         id='imports-pie-chart',
@@ -134,7 +133,7 @@ app.layout = html.Div([
                     }
                 ),
 
-                # ⚠️ Right: Policy Panel
+                # Right: Policy Panel
                 html.Div(
                     id='policy-panel',
                     children=[
@@ -209,10 +208,11 @@ def update_api_key_store(api_key_input):
 def update_commodity_dropdown(selected_sector):
     if not selected_sector:
         raise exceptions.PreventUpdate
+    # Update the commodities dropdown
     options = fetch_commodities(selected_sector)
     return options, options if options else None
 
-# Callback for Individual Commodity Analysis with Policy Block
+# Callback for Individual Commodity Analysis
 @app.callback(
     [Output('summary-metric-cards', 'children'),
      Output('metrics-output', 'children'),
@@ -227,6 +227,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     if not country_code or not hs_code or not api_key:
         raise exceptions.PreventUpdate
     
+    # Get import and export data to calculate scores
     import_data, export_data, export_count = get_trade_info(country_code, hs_code, year, api_key)
 
     # Populate when data is missing
@@ -243,9 +244,10 @@ def update_country_analysis(country_code, year, hs_code, api_key):
             )
         )
 
+    # Calculate the scores
     scri_result = calculate_scri(import_data, export_data, export_count)
 
-    # Populate the cards
+    # Populate the score cards
     metric_cards = [
         html.Div([
             html.Div([
@@ -484,6 +486,7 @@ def analyze_selected_commodities(country_code, year, hs_codes, api_key, sector):
         empty_fig = go.Figure()
         return placeholder, empty_fig
 
+    # Get import and export data for each commodity
     results = []
     for hs_code in hs_codes:
         imports, exports, export_count = get_trade_info(country_code, hs_code, year, api_key)
