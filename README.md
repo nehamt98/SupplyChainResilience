@@ -19,7 +19,7 @@ The SCRI (Supply Chain Resilience Index) combines three metrics:
 - Diversity Score: Scales from 0 to 1 based on how many partners a country imports from
 - Import Dependency Index (IDI): Measures reliance on imports versus exports
 
-SCRI = HHI × (1 - Diversity Score) × IDI
+SCRI = (HHI + (1 - Diversity Score) + IDI)/3
 
 Higher SCRI = higher vulnerability.
 
@@ -103,13 +103,13 @@ The app runs locally at: http://127.0.0.1:8055/
 
 ## Policy Recommendations Logic
 Based on the SCRI score:
-- High Risk (SCRI > 0.7):
+- High Risk (SCRI > 0.65):
 	- Strong reliance on few suppliers
 	- Suggests diversifying or reducing import dependency
-- Medium Risk (0.3 < SCRI ≤ 0.7):
+- Medium Risk (0.35 < SCRI ≤ 0.65):
 	- Moderately concentrated supply
 	- Recommend supplier monitoring and bilateral deals
-- Low Risk (SCRI ≤ 0.3):
+- Low Risk (SCRI ≤ 0.35):
 	- Resilient and well-diversified
 	- Continue with current policies and monitor
 
