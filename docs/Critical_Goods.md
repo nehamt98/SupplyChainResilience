@@ -45,6 +45,8 @@ from multiple directions. Focusing on this sector allows us to deliver
 timely, relevant, and policy-relevant insights that directly address one
 of the most pressing global challenges in supply chain resilience today.
 
+We have added the public health and energy sector as well since focusing only on the semiconductor industry may not be as useful for developing nations.
+
 **References**
 
 <https://www.csis.org/analysis/understanding-biden-administrations-updated-export-controls>
