@@ -9,6 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from utils.main_utils import fetch_countries, fetch_commodities, calculate_scri, get_top_exporters, get_trade_info
 
+
 # Year dropdown options
 year_options = [{"label": str(y), "value": y} for y in range(2023, 2010, -1)]
 
@@ -33,22 +34,22 @@ app.layout = html.Div([
     ], style={"marginBottom": "30px"}),
 
     # Top Controls Grid
-    html.Div([
-        html.Div([
-            html.Label("🔑 API Key", style={"fontWeight": "600", "marginRight": "10px"}),
-            dcc.Input(
-                id='api-key-input',
-                type='text',
-                placeholder="Enter API Key",
-                debounce=True,
-                className='border rounded p-2',
-                style={"width": "300px"}
-            )
-        ], style={"display": "flex", "alignItems": "center"}),  # align label and input inline
+    # html.Div([
+    #     html.Div([
+    #         html.Label("🔑 API Key", style={"fontWeight": "600", "marginRight": "10px"}),
+    #         dcc.Input(
+    #             id='api-key-input',
+    #             type='text',
+    #             placeholder="Enter API Key",
+    #             debounce=True,
+    #             className='border rounded p-2',
+    #             style={"width": "300px"}
+    #         )
+    #     ], style={"display": "flex", "alignItems": "center"}),  # align label and input inline
 
-        dcc.Store(id='api-key-store'),
-        html.Div(id='api-key-status', style={'marginTop': '5px', 'color': 'green'})
-    ], className="mb-8"),
+    #     dcc.Store(id='api-key-store'),
+    #     html.Div(id='api-key-status', style={'marginTop': '5px', 'color': 'green'})
+    # ], className="mb-8"),
 
     html.Div([
         html.Div([
@@ -189,15 +190,15 @@ app.layout = html.Div([
 ], className="p-4 space-y-6")
 
 # Callback when API key is updated
-@app.callback(
-    [Output('api-key-store', 'data'),
-     Output('api-key-status', 'children')],
-    Input('api-key-input', 'value')
-)
-def update_api_key_store(api_key_input):
-    if api_key_input:
-        return api_key_input, "✅ API key stored successfully."
-    return no_update, ""
+# @app.callback(
+#     [Output('api-key-store', 'data'),
+#      Output('api-key-status', 'children')],
+#     Input('api-key-input', 'value')
+# )
+# def update_api_key_store(api_key_input):
+#     if api_key_input:
+#         return api_key_input, "✅ API key stored successfully."
+#     return no_update, ""
 
 # Callback when sector is updated
 @app.callback(
@@ -220,15 +221,14 @@ def update_commodity_dropdown(selected_sector):
      Output('policy-panel', 'children')],
     [Input('country-dropdown', 'value'),
      Input('year-dropdown', 'value'),
-     Input('commodity-dropdown', 'value'),
-     Input('api-key-store', 'data')]
+     Input('commodity-dropdown', 'value')]
 )
-def update_country_analysis(country_code, year, hs_code, api_key):
-    if not country_code or not hs_code or not api_key:
+def update_country_analysis(country_code, year, hs_code):
+    if not country_code or not hs_code:
         raise exceptions.PreventUpdate
     
     # Get import and export data to calculate scores
-    import_data, export_data, export_count = get_trade_info(country_code, hs_code, year, api_key)
+    import_data, export_data, export_count = get_trade_info(country_code, hs_code, year)
 
     # Populate when data is missing
     if not import_data:
@@ -395,7 +395,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
             "width": "100%"
         }
         # Get top_exporters
-        top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
+        top_exporters = get_top_exporters(country_code, hs_code, year, import_data)
         exporter_suggestions = html.Ul([
             html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}")
             for _, export_details in top_exporters.items()
@@ -427,7 +427,7 @@ def update_country_analysis(country_code, year, hs_code, api_key):
             }
         
         # Get top_exporters
-        top_exporters = get_top_exporters(country_code, hs_code, year, import_data, api_key)
+        top_exporters = get_top_exporters(country_code, hs_code, year, import_data)
         exporter_suggestions = html.Ul([
             html.Li(f"{export_details[1]}: ${export_details[0]:,.0f}")
             for _, export_details in top_exporters.items()
@@ -473,11 +473,10 @@ def update_country_analysis(country_code, year, hs_code, api_key):
     [Input('country-dropdown', 'value'),
      Input('year-dropdown', 'value'),
      Input('multi-commodity-select', 'value'),
-     Input('api-key-store', 'data'),
      Input('sector-dropdown', 'value')]
 )
-def analyze_selected_commodities(country_code, year, hs_codes, api_key, sector):
-    if not hs_codes or hs_codes == [] or not country_code or api_key is None:
+def analyze_selected_commodities(country_code, year, hs_codes, sector):
+    if not hs_codes or hs_codes == [] or not country_code:
         # show placeholder text and an empty figure when nothing is selected
         placeholder = html.Div(
             "🔍 Select 1 or more commodities above to see their SCRIs",
@@ -489,7 +488,7 @@ def analyze_selected_commodities(country_code, year, hs_codes, api_key, sector):
     # Get import and export data for each commodity
     results = []
     for hs_code in hs_codes:
-        imports, exports, export_count = get_trade_info(country_code, hs_code, year, api_key)
+        imports, exports, export_count = get_trade_info(country_code, hs_code, year)
 
         if imports:
             scri = calculate_scri(imports, exports, export_count)

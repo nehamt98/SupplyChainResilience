@@ -1,8 +1,14 @@
 import requests
 import time
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
-def fetch_comtrade_data(params, api_key, retries=3):
+load_dotenv()
+_API_KEY = os.getenv("API_KEY")
+
+
+def fetch_comtrade_data(params, retries=3):
     """
     Fetches trade data from the UN Comtrade API based on specified parameters.
 
@@ -14,7 +20,7 @@ def fetch_comtrade_data(params, api_key, retries=3):
     Returns:
         list: List of trade records (dictionaries), or empty list if request fails or data not found.
     """
-    headers = {"Ocp-Apim-Subscription-Key": api_key}
+    headers = {"Ocp-Apim-Subscription-Key": _API_KEY}
     for attempt in range(retries):
         try:
             response = requests.get("https://comtradeapi.un.org/data/v1/get/C/A/HS", params=params, headers=headers)
@@ -67,7 +73,7 @@ import_data_cache = {}
 export_data_cache = {}
 exporter_count_cache = {}
 
-def get_trade_info(country, hs_code, year, api_key):
+def get_trade_info(country, hs_code, year):
     """
     Retrieves trade partner values for a given country, commodity and year.
 
@@ -77,7 +83,6 @@ def get_trade_info(country, hs_code, year, api_key):
         country (int): UN Comtrade reporter country code.
         hs_code (int): Harmonized System commodity code (6-digit).
         year (int): Year of trade data.
-        api_key (str): User's API key for the UN Comtrade API.
 
     Returns:
         dict: Dictionary mapping partner countries to import trade values (USD).
@@ -97,7 +102,7 @@ def get_trade_info(country, hs_code, year, api_key):
         "breakdownMode": "classic",
         "includeDesc": True
     }
-    data = fetch_comtrade_data(params, api_key)
+    data = fetch_comtrade_data(params)
     partner_values_import = {}
     partner_values_export = {}
     exporter_count = set()
@@ -168,7 +173,7 @@ def calculate_scri(imports, exports, export_count):
 # To store cached data
 top_exporters_data_cache = {}
 
-def get_top_exporters(country_code, hs_code, year, import_partners, api_key):
+def get_top_exporters(country_code, hs_code, year, import_partners):
     """
     Returns top 3 exporters of a good (excluding the selected country itself).
 
@@ -177,7 +182,6 @@ def get_top_exporters(country_code, hs_code, year, import_partners, api_key):
         hs_code (int): Harmonized System commodity code (6-digit).
         year (int): Year of trade data.
         import_partners (dict): Import partners as {country_name: value} from get_trade_partners()
-        api_key (str): UN Comtrade API key.
     Returns:
         dict or None: Top 3 exporters as {code: [value, name]}, or None if selected country is one of them.
     """
@@ -194,7 +198,7 @@ def get_top_exporters(country_code, hs_code, year, import_partners, api_key):
             "breakdownMode": "classic",
             "includeDesc": True
         }
-        data = fetch_comtrade_data(params, api_key)
+        data = fetch_comtrade_data(params)
         export_values = {}
         for rec in data:
             reporter = rec.get("reporterDesc")
