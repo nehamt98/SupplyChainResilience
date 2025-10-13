@@ -2,6 +2,8 @@
 An interactive dashboard tool for visualizing and assessing supply chain vulnerabilities in critical goods for any country and year.
 Built using Dash (Plotly) and powered by UN Comtrade trade flow data.
 
+Access the dashboard here - https://bit.ly/4nJXBIn
+
 ## Features
 - Select any country, year, sector and commodity
 - Compute supply chain metrics including:
